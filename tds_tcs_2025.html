@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TDS & TCS Filing Guide - KS TAXSOLUTION</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #162d50;
+            --primary-main: #4e73df;
+            --bs-body-bg: #f8f9fa;
+            --bs-body-font-family: 'Poppins', sans-serif;
+        }
+        body {
+            padding-top: 70px;
+        }
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .logo-img { height: 40px; }
+        .page-header {
+            padding: 4rem 0;
+            text-align: center;
+            background-color: #fff;
+        }
+        .page-header h1 {
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+        .content-card {
+            background-color: #fff;
+            border-radius: 1rem;
+            border: 1px solid #dee2e6;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .content-card.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .card-header-custom {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .header-icon {
+            font-size: 2rem;
+            color: var(--primary-main);
+        }
+        .card-header-custom h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 0;
+            color: var(--primary-dark);
+        }
+        .table {
+            border-top: none;
+        }
+        .table thead {
+            background-color: #f8f9fa;
+        }
+        .table th {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .example-box {
+            background-color: #f8f9fa;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            border: 1px solid #dee2e6;
+        }
+        .cta-section {
+            background: linear-gradient(45deg, var(--primary-dark), var(--primary-main));
+            color: #fff;
+            border-radius: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-white fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="logo KS.png" alt="KS TAXSOLUTION" class="logo-img me-2">
+                <span class="fw-bold d-none d-sm-inline">KS TAXSOLUTION</span>
+            </a>
+            <a href="index.html" class="btn btn-outline-primary ms-auto d-flex align-items-center gap-1">
+                <i class="bi bi-house-door-fill"></i> <span class="d-none d-sm-inline">Back to Home</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="display-5">TDS & TCS Filing Guide</h1>
+            <p class="lead text-muted mb-0">Understand Tax Deducted at Source (TDS) and Tax Collected at Source (TCS).</p>
+        </div>
+    </header>
+
+    <main class="container py-4">
+        <!-- TDS Section -->
+        <section class="content-card">
+            <div class="card-header-custom">
+                <i class="bi bi-scissors header-icon"></i>
+                <h2>Tax Deducted at Source (TDS)</h2>
+            </div>
+            <div class="card-body p-4">
+                <p class="text-muted">TDS is a system where the person responsible for making specified payments (like salary, rent, professional fees) deducts a certain percentage of tax before making the full payment to the receiver.</p>
+                <h5 class="mt-4">Common TDS Sections</h5>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead><tr><th>Section</th><th>Nature of Payment</th><th>Rate</th></tr></thead>
+                        <tbody>
+                            <tr><td>192</td><td>Salary</td><td>Slab Rates</td></tr>
+                            <tr><td>194A</td><td>Interest Income</td><td>10%</td></tr>
+                            <tr><td>194C</td><td>Payment to Contractors</td><td>1% (Ind/HUF), 2% (Others)</td></tr>
+                            <tr><td>194I</td><td>Rent</td><td>2% (P&M), 10% (Land/Building)</td></tr>
+                            <tr><td>194J</td><td>Professional/Technical Fees</td><td>10%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h5 class="mt-4">How It Works: An Example</h5>
+                <div class="example-box">
+                    <p>A company pays a consultant a professional fee of <strong>₹1,00,000</strong>.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-1-circle-fill text-primary me-2"></i><strong>TDS Deduction:</strong> The company deducts 10% TDS (under Sec 194J) = <strong>₹10,000</strong>.</li>
+                        <li><i class="bi bi-2-circle-fill text-primary me-2"></i><strong>Net Payment:</strong> The consultant receives ₹1,00,000 - ₹10,000 = <strong>₹90,000</strong>.</li>
+                        <li><i class="bi bi-3-circle-fill text-primary me-2"></i><strong>Deposit & Credit:</strong> The company deposits the ₹10,000 with the government, and the consultant can claim this amount as a tax credit when filing their ITR.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- TCS Section -->
+        <section class="content-card">
+            <div class="card-header-custom">
+                <i class="bi bi-cash-stack header-icon"></i>
+                <h2>Tax Collected at Source (TCS)</h2>
+            </div>
+            <div class="card-body p-4">
+                <p class="text-muted">TCS is a tax collected by the seller from the buyer at the time of selling certain goods. The seller is responsible for collecting the tax and depositing it with the government.</p>
+                <h5 class="mt-4">Common TCS Provisions</h5>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead><tr><th>Section</th><th>Nature of Goods/Transaction</th><th>Rate</th></tr></thead>
+                        <tbody>
+                            <tr><td>206C(1)</td><td>Sale of Alcoholic Liquor, Tendu Leaves, Scrap</td><td>1% - 5%</td></tr>
+                            <tr><td>206C(1F)</td><td>Sale of Motor Vehicle</td><td>1% (if value > ₹10 Lakh)</td></tr>
+                            <tr><td>206C(1H)</td><td>Sale of Goods (any)</td><td>0.1% (if turnover > ₹10 Cr & sale > ₹50 Lakh)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h5 class="mt-4">How It Works: An Example</h5>
+                <div class="example-box">
+                    <p>A car dealer sells a car for <strong>₹15,00,000</strong>.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-1-circle-fill text-primary me-2"></i><strong>TCS Collection:</strong> The dealer collects 1% TCS (as value > ₹10 Lakh) = <strong>₹15,000</strong>.</li>
+                        <li><i class="bi bi-2-circle-fill text-primary me-2"></i><strong>Total Payment:</strong> The buyer pays ₹15,00,000 + ₹15,000 = <strong>₹15,15,000</strong>.</li>
+                        <li><i class="bi bi-3-circle-fill text-primary me-2"></i><strong>Deposit & Credit:</strong> The dealer deposits the ₹15,000 with the government, and the buyer can claim this amount as a tax credit.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Differences Section -->
+        <section class="content-card">
+            <div class="card-header-custom">
+                <i class="bi bi-distribute-vertical header-icon"></i>
+                <h2>Key Differences: TDS vs. TCS</h2>
+            </div>
+            <div class="card-body p-4">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class="table-light"><tr><th>Basis</th><th>TDS</th><th>TCS</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Meaning</strong></td><td>Tax is deducted from income/payment.</td><td>Tax is collected over and above the sale price.</td></tr>
+                            <tr><td><strong>Trigger Point</strong></td><td>On payment of expenses like salary, rent, etc.</td><td>On sale of specified goods.</td></tr>
+                            <tr><td><strong>Responsibility</strong></td><td>Payer/Deductor</td><td>Seller/Collector</td></tr>
+                            <tr><td><strong>Applicability</strong></td><td>On payments exceeding specified limits.</td><td>On sales exceeding specified limits.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section p-4 p-md-5 text-center content-card">
+            <h3 class="fw-bold text-white">Expert TDS & TCS Filing Services</h3>
+            <p class="mb-4">Ensure timely and accurate TDS/TCS compliance with our professional assistance. Avoid penalties and manage your tax obligations seamlessly.</p>
+            <a href="contact_2025.html" class="btn btn-light fw-bold px-4">Get Expert Help</a>
+        </section>
+    </main>
+    
+    <footer class="text-center py-4 text-muted small mt-4">
+        &copy; 2025 KS TAXSOLUTION. All Rights Reserved.
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.content-card').forEach(card => observer.observe(card));
+        });
+    </script>
+</body>
+</html>

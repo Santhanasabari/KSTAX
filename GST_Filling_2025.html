@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Professional GST Filing Guide – India</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+  />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ------- Professional Design System ------- */
+    :root {
+      --primary-color: #0d6efd;
+      --primary-dark: #0a58ca;
+      --secondary-color: #6c757d;
+      --light-gray: #f8f9fa;
+      --dark-text: #212529;
+      --body-text: #495057;
+      --white-color: #ffffff;
+      --border-color: #dee2e6;
+      --section-padding: 100px;
+    }
+
+    body {
+      font-family: 'Manrope', 'Segoe UI', system-ui, sans-serif;
+      scroll-behavior: smooth;
+      background-color: var(--white-color);
+      color: var(--body-text);
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        color: var(--dark-text);
+        font-weight: 700;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--primary-color);
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: var(--primary-dark);
+    }
+
+    section {
+      padding: var(--section-padding) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .section-alternate {
+      background-color: var(--light-gray);
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      color: var(--secondary-color);
+      max-width: 700px;
+      margin: 0 auto 3rem auto;
+      font-size: 1.1rem;
+    }
+
+    /* ------- Navbar ------- */
+    .navbar {
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      padding: 0.75rem 0;
+    }
+    .navbar-brand span {
+      font-weight: 800;
+      font-size: 1.25rem;
+    }
+    .navbar .nav-link {
+      font-weight: 500;
+      color: var(--body-text);
+      transition: color 0.2s;
+    }
+    .navbar .nav-link:hover, .navbar .nav-link.active {
+      color: var(--primary-color);
+    }
+
+    /* ------- Hero Section ------- */
+    .hero {
+      padding: var(--section-padding) 0;
+      padding-top: calc(var(--section-padding) + 50px);
+      background: linear-gradient(180deg, var(--white-color) 0%, var(--light-gray) 100%);
+    }
+    .hero-title {
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--dark-text);
+    }
+    .hero-highlight {
+      color: var(--primary-color);
+    }
+    .hero-description {
+      color: var(--secondary-color);
+      max-width: 600px;
+      font-size: 1.1rem;
+    }
+    .btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      padding: 14px 32px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      border-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(13, 110, 253, 0.2);
+    }
+    .btn-outline-secondary {
+      padding: 14px 32px;
+      font-weight: 700;
+    }
+    
+    /* ------- Professional Cards ------- */
+    .info-card {
+      border: 1px solid var(--border-color);
+      background-color: var(--white-color);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+    }
+    .info-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.1);
+    }
+    .icon-box {
+      width: 56px;
+      height: 56px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: linear-gradient(45deg, var(--primary-color), #4ea8ff);
+      color: var(--white-color);
+      font-size: 1.75rem;
+      box-shadow: 0 8px 15px rgba(13, 110, 253, 0.3);
+    }
+
+    /* Scroll reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ------- Timeline Steps ------- */
+    .timeline-item {
+      position: relative;
+      padding-left: 45px;
+      padding-bottom: 40px;
+    }
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: 0;
+      top: 4px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: var(--white-color);
+      border: 4px solid var(--primary-color);
+      z-index: 1;
+    }
+    .timeline-line {
+      position: absolute;
+      left: 9px;
+      top: 20px;
+      bottom: -20px;
+      width: 2px;
+      background-color: var(--border-color);
+    }
+
+    /* ------- Table styling ------- */
+    .table { border-color: var(--border-color); }
+    .table thead th {
+      background-color: var(--light-gray);
+      border-bottom-width: 1px;
+      font-weight: 700;
+    }
+    
+    /* ------- Footer ------- */
+    footer {
+      background-color: var(--dark-text);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 40px 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#top">
+        <i class="bi bi-file-earmark-spreadsheet-fill text-primary fs-4"></i>
+        <span>GST Filing Guide</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav gap-2 align-items-lg-center">
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-2" href="#what-is-gst"><i class="bi bi-info-circle"></i>Overview</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-2" href="#types"><i class="bi bi-card-checklist"></i>Return Types</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-2" href="#process"><i class="bi bi-list-ol"></i>Filing Steps</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-2" href="#docs"><i class="bi bi-folder2-open"></i>Documents</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-2" href="#penalty"><i class="bi bi-exclamation-triangle"></i>Penalties & ITC</a>
+          </li>
+          <li class="nav-item ms-lg-2">
+            <a class="btn btn-outline-primary btn-sm d-flex align-items-center gap-2" href="index.html">
+              <i class="bi bi-house-door-fill"></i>Home
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header id="top" class="hero">
+    <div class="container">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-lg-9 text-center reveal">
+          <h1 class="hero-title mb-4">
+            A Professional Guide to <br><span class="hero-highlight">GST Return Filing</span>
+          </h1>
+          <p class="hero-description mb-5 mx-auto">
+            A comprehensive, single-page resource for understanding GST returns, forms, due dates, processes, and compliance rules in India.
+          </p>
+          <div class="d-flex flex-wrap gap-3 mb-4 justify-content-center">
+            <a href="#process" class="btn btn-primary btn-lg d-flex align-items-center gap-2">
+              <i class="bi bi-play-circle-fill"></i>
+              Begin Filing Process
+            </a>
+            <a href="#types" class="btn btn-outline-secondary btn-lg d-flex align-items-center gap-2">
+              <i class="bi bi-grid-fill"></i>
+              Explore Return Types
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Overview Section -->
+  <section id="what-is-gst">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <h2 class="section-title">What is GST Return Filing?</h2>
+        <p class="section-subtitle">
+          GST Return Filing is the mandatory process of reporting your sales, purchases, tax collected, and tax paid to the Indian Government. It is the cornerstone of GST compliance for every registered entity.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4 reveal">
+          <div class="info-card p-4 text-center">
+            <div class="icon-box mb-4 mx-auto">
+              <i class="bi bi-shield-check"></i>
+            </div>
+            <h5 class="mb-2">Compliance & ITC</h5>
+            <p class="small text-secondary mb-0">
+              Ensure legal compliance, avoid penalties, and correctly claim Input Tax Credit (ITC) to manage cash flow.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4 reveal" style="transition-delay: 100ms;">
+          <div class="info-card p-4 text-center">
+            <div class="icon-box mb-4 mx-auto">
+              <i class="bi bi-people-fill"></i>
+            </div>
+            <h5 class="mb-2">Mandatory For</h5>
+            <p class="small text-secondary mb-0">
+              All registered entities, including regular taxpayers, composition dealers, e-commerce operators, and TDS deductors.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4 reveal" style="transition-delay: 200ms;">
+          <div class="info-card p-4 text-center">
+            <div class="icon-box mb-4 mx-auto">
+              <i class="bi bi-calendar3"></i>
+            </div>
+            <h5 class="mb-2">Filing Frequency</h5>
+            <p class="small text-secondary mb-0">
+              Returns are filed monthly, quarterly, or annually, based on the taxpayer's registration type and aggregate turnover.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GST Return Types -->
+  <section id="types" class="section-alternate">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <h2 class="section-title">Key GST Return Forms</h2>
+        <p class="section-subtitle">
+          Different GST forms serve distinct purposes, from detailing sales and summarizing liabilities to annual reconciliation.
+        </p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-10 reveal">
+          <div class="table-responsive">
+            <table class="table table-striped table-bordered mb-0 align-middle info-card p-2">
+              <thead>
+                <tr>
+                  <th>Form</th>
+                  <th>Frequency</th>
+                  <th>Purpose</th>
+                  <th>Applicable For</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="badge fs-6 text-bg-success">GSTR-1</span></td>
+                  <td>Monthly / Quarterly</td>
+                  <td>Detailed report of all sales (outward supplies).</td>
+                  <td>All regular taxpayers</td>
+                </tr>
+                <tr>
+                  <td><span class="badge fs-6 text-bg-primary">GSTR-3B</span></td>
+                  <td>Monthly</td>
+                  <td>Summary return for calculating and paying GST liability.</td>
+                  <td>All regular taxpayers</td>
+                </tr>
+                <tr>
+                  <td><span class="badge fs-6 text-bg-secondary">CMP-08</span></td>
+                  <td>Quarterly</td>
+                  <td>Quarterly statement and tax payment form.</td>
+                  <td>Composition dealers</td>
+                </tr>
+                <tr>
+                  <td><span class="badge fs-6 text-bg-info">GSTR-5</span></td>
+                  <td>Monthly</td>
+                  <td>Return for Non-Resident Foreign Taxable Person.</td>
+                  <td>Non-Resident Taxpayers</td>
+                </tr>
+                <tr>
+                  <td><span class="badge fs-6 text-bg-dark">GSTR-6</span></td>
+                  <td>Monthly</td>
+                  <td>Return for distributing input tax credit.</td>
+                  <td>Input Service Distributors (ISD)</td>
+                </tr>
+                <tr>
+                  <td><span class="badge fs-6 text-bg-secondary">GSTR-7</span></td>
+                  <td>Monthly</td>
+                  <td>Return for authorities deducting tax at source (TDS).</td>
+                  <td>TDS Deductors</td>
+                </tr>
+                <tr>
+                  <td><span class="badge fs-6 text-bg-warning">GSTR-9</span></td>
+                  <td>Annually</td>
+                  <td>Consolidated annual summary of all GST transactions.</td>
+                  <td>Regular taxpayers</td>
+                </tr>
+                <tr>
+                  <td><span class="badge fs-6 text-bg-danger">GSTR-10</span></td>
+                  <td>Once</td>
+                  <td>Final return filed upon cancellation of GST registration.</td>
+                  <td>Taxpayers cancelling GSTIN</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filing Process -->
+  <section id="process">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <h2 class="section-title">The GST Filing Workflow</h2>
+        <p class="section-subtitle">
+          Follow this systematic process on the official GST portal to ensure accurate and timely filing of your returns.
+        </p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-8 reveal">
+          <div class="timeline">
+            <!-- Step 1 -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-line"></div>
+              <h6 class="mb-1">Step 1: Login & Prepare GSTR-1</h6>
+              <p class="small text-secondary mb-0">
+                Log in to the GST portal and navigate to the Return Dashboard. Meticulously compile and upload all sales invoices, credit notes, and debit notes for the period.
+              </p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-line"></div>
+              <h6 class="mb-1">Step 2: Validate GSTR-1 and Submit</h6>
+              <p class="small text-secondary mb-0">
+                Verify the summarized details, ensure accuracy of all entries, generate the summary, and then submit and file GSTR-1 using DSC or EVC.
+              </p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-line"></div>
+              <h6 class="mb-1">Step 3: Verify ITC in GSTR-2B</h6>
+              <p class="small text-secondary mb-0">
+                After the due date, GSTR-2B (a static ITC statement) will be generated. Download it to reconcile your purchase records with the ITC available to you.
+              </p>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <h6 class="mb-1">Step 4: Prepare & File GSTR-3B with Payment</h6>
+              <p class="small text-secondary mb-0">
+                GSTR-3B auto-populates data from GSTR-1. Enter the eligible ITC from GSTR-2B, calculate the net tax liability, make the payment via cash/credit ledgers, and file the return.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Documents & Penalty -->
+  <section id="docs" class="section-alternate">
+    <div class="container">
+      <div class="row g-4 align-items-stretch">
+        <div class="col-lg-6 reveal">
+          <div class="info-card p-4">
+            <h5 class="mb-3 d-flex align-items-center gap-2"><i class="bi bi-file-earmark-zip-fill text-primary"></i>Required Documentation</h5>
+            <ul class="small text-secondary mb-0 ps-3">
+              <li>Sales and Purchase Invoices (B2B and B2C)</li>
+              <li>Issued Credit / Debit Notes</li>
+              <li>HSN / SAC wise summary of sales and purchases</li>
+              <li>Bank statements for payment reconciliation</li>
+              <li>E-way Bills generated during the period</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-6 reveal" style="transition-delay: 100ms;">
+          <div class="info-card p-4">
+            <h5 class="mb-3 d-flex align-items-center gap-2"><i class="bi bi-server text-primary"></i>Data from GST Portal</h5>
+            <ul class="small text-secondary mb-0 ps-3">
+              <li>Auto-drafted GSTR-2B for Input Tax Credit matching</li>
+              <li>Electronic Cash, Credit, and Liability Ledgers</li>
+              <li>Previously filed GST returns for reference</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Penalty & ITC -->
+  <section id="penalty">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <h2 class="section-title">Compliance: Penalties & ITC Rules</h2>
+        <p class="section-subtitle">
+          Understanding the financial consequences of non-compliance and the strict conditions for claiming Input Tax Credit is crucial for every business.
+        </p>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-6 reveal">
+          <div class="info-card p-4">
+            <h5 class="mb-3 text-warning"><i class="bi bi-exclamation-octagon-fill me-2"></i>Late Fees & Interest</h5>
+            <ul class="small text-secondary mb-3">
+              <li><strong>Late Fee:</strong> A statutory fee of ₹50 per day (₹25 CGST + ₹25 SGST) is levied for late filing of GSTR-1 & 3B. Reduced fees apply for NIL returns.</li>
+              <li><strong>Interest:</strong> Interest at 18% per annum is charged on the net tax liability for any delay in payment.</li>
+            </ul>
+            <div class="alert alert-warning small mb-0">
+              Persistent delays can lead to GST registration cancellation and other legal actions.
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 reveal" style="transition-delay: 100ms;">
+          <div class="info-card p-4">
+            <h5 class="mb-3 text-success"><i class="bi bi-patch-check-fill me-2"></i>Key ITC Claim Conditions</h5>
+            <ul class="small text-secondary mb-0">
+              <li>ITC can only be claimed if you have a valid tax invoice or debit note.</li>
+              <li>You must have received the specified goods or services.</li>
+              <li>The supplier must have paid the tax to the government and filed their GSTR-1.</li>
+              <li>The specific credit must be visible in your GSTR-2B statement.</li>
+              <li>You must pay your supplier within 180 days from the invoice date.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container text-center small">
+      <p class="mb-0">
+        This GST Filing Guide is for informational purposes only. Always consult the official GST portal and notifications for the latest laws and due dates.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Scroll reveal animation
+    const reveals = document.querySelectorAll(".reveal");
+
+    function handleReveal() {
+      const triggerBottom = window.innerHeight * 0.9;
+      reveals.forEach(el => {
+        if (el.getBoundingClientRect().top < triggerBottom) {
+          el.classList.add("show");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", handleReveal);
+    document.addEventListener("DOMContentLoaded", handleReveal);
+  </script>
+</body>
+</html>

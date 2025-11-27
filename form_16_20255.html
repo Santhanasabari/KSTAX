@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Form16 Web App — Extract & Image</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style_16_20255.css" />
+  <!-- pdf.js to render PDFs as canvas images -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <h1>Form-16 Extractor & Image Generator</h1>
+      <p class="subtitle">Auto-read Form-16, create a printable summary, preview and download as PDF or PNG.</p>
+    </header>
+
+    <section class="panel">
+      <div class="controls">
+        <button id="btnFetch" class="btn primary">Fetch & Extract (from server file)</button>
+        <button id="btnGenerate" class="btn">Generate Summary PDF</button>
+        <button id="btnShowOriginal" class="btn">Show Original PDF</button>
+        <button id="btnDownloadPng" class="btn accent">Download Preview PNG</button>
+      </div>
+
+      <div id="status" class="status">Ready</div>
+
+      <div class="result-grid">
+        <div class="card">
+          <h3>Extracted Data (JSON)</h3>
+          <pre id="jsonOut">—</pre>
+        </div>
+
+        <div class="card">
+          <h3>Summary Preview</h3>
+          <canvas id="pdfCanvas" width="600"></canvas>
+          <div class="hint">If blank, click "Generate Summary PDF" then preview.</div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <small>Built with Flask • pdfplumber • reportlab • pdf.js</small>
+    </footer>
+  </main>
+
+  <script src="form_16_20255.js"></script>
+</body>
+</html>

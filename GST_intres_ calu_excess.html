@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GST Interest & Excess ITC Calculator - KS TAXSOLUTION</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-dark: #162d50;
+      --primary-main: #4e73df;
+      --bs-body-bg: #f8f9fa;
+      --bs-body-font-family: 'Poppins', sans-serif;
+    }
+    body{background:linear-gradient(135deg,#f8fafc,#eef2ff);}
+    .navbar { box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+    .logo-img { height: 40px; }
+    .page-header {
+      padding: 3rem 0;
+      text-align: center;
+      background-color: #fff;
+    }
+    .page-header h1 {
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+    .calculator-card {
+      background-color: #fff;
+      border-radius: 1rem;
+      border: 1px solid #dee2e6;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      padding: 2rem;
+    }
+    #results-section {
+      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    #results-section.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .summary-card {
+      background: linear-gradient(45deg, var(--primary-dark), var(--primary-main));
+      color: #fff;
+      border-radius: 1rem;
+    }
+    .summary-card .display-6 {
+      font-weight: 700;
+    }
+    .card{border-radius:1rem;box-shadow:0 8px 24px rgba(15,23,42,0.06)}
+    .animate-zoom{transition:transform .28s cubic-bezier(.2,.9,.3,1)}
+    .animate-zoom:hover{transform:scale(1.02)}
+    small.muted{color:#6b7280}
+    .step-bubble{background:#fff;padding:.5rem .75rem;border-radius:.6rem;border:1px solid #e6eefb}
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-white sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="logo KS.png" alt="KS TAXSOLUTION" class="logo-img me-2">
+        <span class="fw-bold d-none d-sm-inline">KS TAXSOLUTION</span>
+      </a>
+      <a href="index.html" class="btn btn-outline-primary ms-auto d-flex align-items-center gap-1">
+        <i class="bi bi-house-door-fill"></i> <span class="d-none d-sm-inline">Back to Home</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <h1 class="display-6">GST Interest & ITC Reversal Calculator</h1>
+      <p class="lead text-muted mb-0">Calculate interest on wrongly availed ITC under Section 50 of the CGST Act.</p>
+    </div>
+  </header>
+  
+  <main class="container py-4">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <!-- Calculator Card -->
+        <div class="calculator-card" id="calculator-form">
+          <h4 class="mb-4 text-center">Enter Calculation Details</h4>
+          
+          <div class="mb-3">
+            <label class="form-label">Excess ITC Claimed (₹)</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-currency-rupee"></i></span>
+                <input id="itcAmount" type="number" class="form-control" placeholder="e.g., 50000" min="0">
+            </div>
+          </div>
+
+          <div class="row g-3 mb-3">
+            <div class="col-md-6">
+              <label class="form-label">Start Date</label>
+              <input id="startDate" type="date" class="form-control">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">End Date (Reversal Date)</label>
+              <input id="endDate" type="date" class="form-control">
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Interest Rate (% per annum)</label>
+            <select id="interestRate" class="form-select">
+              <option value="18" selected>18% (As per Section 50)</option>
+              <option value="24">24%</option>
+              <option value="custom">Custom...</option>
+            </select>
+            <input id="customRate" type="number" class="form-control mt-2" placeholder="Enter custom rate %" style="display:none;" min="0">
+          </div>
+          
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button id="computeBtn" class="btn btn-primary btn-lg px-4">Calculate Interest</button>
+            <button id="resetBtn" class="btn btn-outline-secondary btn-lg px-4">Reset</button>
+          </div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results-section" class="mt-4">
+          <!-- Summary Card -->
+          <div class="summary-card text-center p-4 mb-4">
+            <p class="mb-1">Total Interest Payable</p>
+            <div id="finalInterest" class="display-6"></div>
+          </div>
+          
+          <!-- Detailed Breakdown -->
+          <div class="card">
+            <div class="card-header fw-bold">Calculation Breakdown</div>
+            <div class="card-body">
+              <div id="results-details"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-center py-4 text-muted small mt-4">
+    &copy; 2025 KS TAXSOLUTION. All Rights Reserved.
+  </footer>
+
+<script>
+  const $ = (id) => document.getElementById(id);
+
+  // UI Event Listeners
+  $('interestRate').addEventListener('change', () => {
+    $('customRate').style.display = $('interestRate').value === 'custom' ? 'block' : 'none';
+  });
+
+  $('computeBtn').addEventListener('click', calculateInterest);
+  $('resetBtn').addEventListener('click', resetCalculator);
+
+  function resetCalculator() {
+    $('calculator-form').reset();
+    $('customRate').style.display = 'none';
+    $('results-section').classList.remove('show');
+  }
+
+  function calculateInterest() {
+    const itc = parseFloat($('itcAmount').value || 0);
+    const start = $('startDate').value;
+    const end = $('endDate').value;
+    const rate = $('interestRate').value === 'custom' ? parseFloat($('customRate').value || 0) : parseFloat($('interestRate').value);
+    const resultsSection = $('results-section');
+    const resultsDetails = $('results-details');
+
+    resultsDetails.innerHTML = '';
+    
+    if (!itc || !start || !end) {
+      resultsDetails.innerHTML = '<div class="alert alert-warning">Please fill all fields to calculate.</div>';
+      resultsSection.classList.add('show');
+      $('finalInterest').textContent = '₹ 0.00';
+      return;
+    }
+    if (new Date(end) < new Date(start)) {
+      resultsDetails.innerHTML = '<div class="alert alert-danger">End date must be on or after the start date.</div>';
+      resultsSection.classList.add('show');
+      $('finalInterest').textContent = 'Error';
+      return;
+    }
+    
+    const s = new Date(start);
+    const e = new Date(end);
+    const diffTime = e.getTime() - s.getTime();
+    const days = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1; // Inclusive of both dates
+
+    // Formula: ITC * Rate/100 * Days/365
+    const interest = itc * (rate / 100) * (days / 365);
+    const totalPayable = itc + interest;
+    
+    // Display results
+    $('finalInterest').textContent = `₹ ${money(interest)}`;
+
+    resultsDetails.innerHTML = `
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item d-flex justify-content-between align-items-center">Excess ITC Amount<span>₹ ${money(itc)}</span></li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">Period of Calculation<span>${start} to ${end}</span></li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">Number of Days<span>${days}</span></li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">Annual Interest Rate<span>${rate}%</span></li>
+        <li class="list-group-item d-flex justify-content-between align-items-center fw-bold">Interest Payable<span class="fs-5">₹ ${money(interest)}</span></li>
+        <li class="list-group-item d-flex justify-content-between align-items-center text-muted">Total Reversal Amount (ITC + Interest)<span class="fw-bold">₹ ${money(totalPayable)}</span></li>
+      </ul>
+    `;
+    
+    resultsSection.classList.add('show');
+    resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function money(x) {
+    return (Math.round((+x + Number.EPSILON) * 100) / 100).toLocaleString('en-IN', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

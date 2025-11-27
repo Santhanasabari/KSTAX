@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form 16 Extractor</title>
+<link rel="stylesheet" href="style_form.css">
+
+<!-- PDF.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h1>📄 Form 16 Extractor</h1>
+
+    <label class="upload-box">
+        <input type="file" id="pdfFile" accept="application/pdf">
+        <span>Click to Upload Form 16 PDF</span>
+    </label>
+
+    <div id="loader" class="loader hidden"></div>
+
+    <div id="result" class="result-card hidden">
+        <h2>Extracted Details</h2>
+        <pre id="output"></pre>
+    </div>
+</div>
+
+<script src="file_return.js"></script>
+</body>
+</html>

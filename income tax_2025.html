@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Income Tax Act 1961 – Detailed Sections</title>
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Font (Poppins) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap Icons (for custom accordion caret) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-blue: #0d6efd;
+      --primary-blue-light: #e7f1ff; /* Lighter shade of primary blue */
+      --background-light: #f8f9fa; /* General light background */
+      --card-background: #ffffff; /* Pure white for cards/accordion */
+      --text-dark: #343a40;
+      --text-muted: #6c757d;
+      --border-light: #dee2e6; /* Light grey for borders */
+      --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft small shadow */
+      --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.08); /* Medium shadow */
+      --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.1); /* Larger shadow */
+
+      /* Bootstrap accordion overrides for light theme */
+      --bs-accordion-bg: var(--card-background);
+      --bs-accordion-color: var(--text-dark);
+      --bs-accordion-border-color: var(--border-light);
+      --bs-accordion-btn-bg: var(--card-background);
+      --bs-accordion-btn-color: var(--text-dark);
+      --bs-accordion-btn-icon-color: var(--primary-blue);
+      --bs-accordion-btn-icon-active-color: var(--primary-blue);
+      --bs-accordion-active-bg: var(--primary-blue-light); /* Background for active item header */
+      --bs-accordion-active-color: var(--primary-blue);
+      --bs-accordion-btn-focus-border-color: rgba(var(--primary-blue), 0.25);
+      --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    }
+
+    body {
+      background-color: var(--background-light);
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      margin-top: 30px; /* Add some space at the top */
+      margin-bottom: 50px;
+    }
+    .container {
+      max-width: 960px; /* Constrain width */
+    }
+
+    h1 {
+      color: var(--primary-blue);
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin-bottom: 30px !important;
+    }
+    h2 { /* For accordion headers text, as they are wrapped in <h2> */
+      color: var(--primary-blue);
+      font-weight: 600;
+      font-size: 1.8rem;
+    }
+    h5 { /* For sub-section titles within accordion bodies */
+      color: var(--primary-blue);
+      font-weight: 600;
+      margin-top: 20px;
+      margin-bottom: 15px;
+    }
+
+    /* Accordion Customization */
+    .accordion {
+      --bs-accordion-border-width: 0; /* Remove default border for the accordion itself */
+    }
+
+    .accordion-item {
+      margin-bottom: 15px; /* Spacing between accordion items */
+      border-radius: 12px;
+      overflow: hidden; /* Important for border-radius */
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease-in-out;
+      border: 1px solid var(--border-light); /* Subtle border for each item */
+      background-color: var(--card-background); /* Ensure consistent background */
+    }
+    .accordion-item:last-of-type {
+      margin-bottom: 0; /* No margin for the last item */
+    }
+
+    .accordion-item:hover {
+      box-shadow: var(--shadow-md); /* Lift effect on hover */
+      transform: translateY(-3px);
+    }
+
+    .accordion-header {
+      border-bottom: none; /* Remove header border */
+    }
+
+    .accordion-button {
+      background-color: var(--card-background);
+      color: var(--text-dark);
+      font-weight: 600;
+      font-size: 1.15rem;
+      padding: 18px 25px;
+      border-radius: 12px; /* Match item border-radius */
+      transition: all 0.3s ease;
+      border: none; /* Ensure no button border */
+      box-shadow: none !important; /* Remove Bootstrap's focus box-shadow */
+    }
+    .accordion-button:not(.collapsed) {
+      background-color: var(--primary-blue-light); /* Background for active button */
+      color: var(--primary-blue);
+      border-bottom: 1px solid var(--border-light); /* Separator for active body */
+      border-radius: 12px 12px 0 0; /* Only top rounded */
+    }
+    .accordion-button:not(.collapsed)::after {
+        /* Bootstrap Icons for active state */
+        content: "\f286"; /* chevron-up */
+        transform: none; /* Reset transform as the icon naturally points up */
+    }
+    .accordion-button::after {
+      /* Use Bootstrap Icons for caret */
+      font-family: "bootstrap-icons" !important;
+      content: "\f282"; /* chevron-down */
+      background-image: none; /* Remove default Bootstrap arrow image */
+      width: 1.25rem;
+      height: 1.25rem;
+      color: var(--primary-blue); /* Color for the icon */
+      font-size: 1.25rem;
+      transition: transform 0.3s ease;
+    }
+
+
+    .accordion-body {
+      padding: 25px;
+      background-color: var(--card-background); /* White background for body */
+      color: var(--text-dark);
+      border-top: none; /* Remove body top border */
+      border-radius: 0 0 12px 12px; /* Only bottom rounded */
+    }
+    .accordion-body ul {
+      padding-left: 25px;
+      margin-bottom: 0;
+    }
+    .accordion-body li {
+      margin-bottom: 8px;
+    }
+    .accordion-body strong {
+      color: var(--primary-blue);
+    }
+
+
+    .section-title { /* For sub-headers within an accordion body */
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin-top: 25px;
+      margin-bottom: 15px;
+      font-size: 1.25rem;
+    }
+
+    .key-notes {
+      background-color: var(--primary-blue-light);
+      padding: 20px;
+      border-left: 5px solid var(--primary-blue);
+      margin-bottom: 25px;
+      border-radius: 8px;
+      box-shadow: var(--shadow-sm);
+      color: var(--text-dark);
+    }
+    .key-notes p {
+      margin-bottom: 0;
+      font-weight: 500;
+    }
+
+
+    /* Table Styling */
+    .table {
+      border-radius: 8px;
+      overflow: hidden; /* Ensures rounded corners are visible */
+      border: 1px solid var(--border-light);
+      margin-bottom: 0; /* Remove default table margin */
+    }
+    .table thead.table-primary th { /* Custom header for tables */
+        background-color: var(--primary-blue);
+        color: white;
+        border-color: var(--primary-blue);
+        font-weight: 600;
+        padding: 12px 15px;
+    }
+    .table tbody tr td {
+        padding: 10px 15px;
+        border-color: var(--border-light);
+        color: var(--text-dark);
+    }
+    .table-bordered {
+        border-color: var(--border-light);
+    }
+    .table-bordered th, .table-bordered td {
+        border-color: var(--border-light);
+    }
+    .table tbody tr {
+        transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .table tbody tr:hover {
+        background-color: rgba(13, 110, 253, 0.05); /* Very light blue on hover using rgba of primary */
+        transform: translateX(3px); /* Subtle slide effect */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow on hover */
+    }
+
+    /* Animation - Fade in on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container py-5">
+  <h1 class="mb-4 text-center reveal">Income Tax Act, 1961 – Detailed Sections</h1>
+
+  <div class="accordion" id="incomeTaxAccordion">
+
+    <!-- 1. Preliminary Sections -->
+    <div class="accordion-item reveal">
+      <h2 class="accordion-header" id="heading1">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+          1. Preliminary Sections (Sections 1–10)
+        </button>
+      </h2>
+      <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1" data-bs-parent="#incomeTaxAccordion">
+        <div class="accordion-body">
+          <ul>
+            <li><strong>Section 1:</strong> Short title, extent, and commencement of the Act.</li>
+            <li><strong>Section 2:</strong> Definitions of key terms like Assessee, Person, Income, Previous Year, Assessment Year.</li>
+            <li><strong>Section 3:</strong> Scope of total income (what incomes are taxable).</li>
+            <li><strong>Section 4:</strong> Charge of income tax.</li>
+            <li><strong>Section 5:</strong> Residential status and scope of total income.</li>
+            <li><strong>Section 6:</strong> Determination of residential status.</li>
+            <li><strong>Sections 7–10:</strong> Income deemed to accrue or arise in India.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Heads of Income -->
+    <div class="accordion-item reveal">
+      <h2 class="accordion-header" id="heading2">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+          2. Heads of Income (Sections 14–80)
+        </button>
+      </h2>
+      <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#incomeTaxAccordion">
+        <div class="accordion-body">
+          <!-- Salaries -->
+          <h5 class="section-title">A. Salaries (Sections 15–17)</h5>
+          <ul>
+            <li><strong>Section 15:</strong> Salary includes wages, pension, gratuity, leave encashment.</li>
+            <li><strong>Section 16:</strong> Deduction from salary (standard deduction ₹50,000 + professional tax).</li>
+            <li><strong>Section 17:</strong> Perquisites and allowances (HRA, LTA, rent-free accommodation).</li>
+          </ul>
+
+          <!-- House Property -->
+          <h5 class="section-title">B. Income from House Property (Sections 22–27)</h5>
+          <ul>
+            <li><strong>Section 22:</strong> Annual value of property is taxable.</li>
+            <li><strong>Section 23:</strong> Determination of annual value.</li>
+            <li><strong>Section 24:</strong> Deductions like home loan interest and 30% standard deduction.</li>
+            <li><strong>Sections 25–27:</strong> Special cases (co-ownership, let-out property).</li>
+          </ul>
+
+          <!-- Business & Profession -->
+          <h5 class="section-title">C. Profits and Gains from Business or Profession (Sections 28–44DB)</h5>
+          <ul>
+            <li><strong>Section 28:</strong> Business income.</li>
+            <li><strong>Section 32:</strong> Depreciation on assets.</li>
+            <li><strong>Section 35:</strong> Scientific research expenses.</li>
+            <li><strong>Section 36:</strong> Other allowable business deductions.</li>
+            <li><strong>Section 44:</strong> Presumptive taxation for small businesses and professionals.</li>
+          </ul>
+
+          <!-- Capital Gains -->
+          <h5 class="section-title">D. Capital Gains (Sections 45–55A)</h5>
+          <ul>
+            <li><strong>Section 45:</strong> Capital gains on transfer of assets.</li>
+            <li><strong>Section 48:</strong> Computation of capital gains.</li>
+            <li><strong>Sections 54–54F:</strong> Exemptions on reinvestment in residential property.</li>
+          </ul>
+
+          <!-- Other Sources -->
+          <h5 class="section-title">E. Income from Other Sources (Sections 56–59)</h5>
+          <ul>
+            <li><strong>Section 56:</strong> Income like gifts exceeding ₹50,000, lottery, interest on securities.</li>
+            <li><strong>Section 57:</strong> Expenses allowed from other sources.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Deductions -->
+    <div class="accordion-item reveal">
+      <h2 class="accordion-header" id="heading3">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+          3. Deductions (Sections 80C–80U)
+        </button>
+      </h2>
+      <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#incomeTaxAccordion">
+        <div class="accordion-body">
+          <p class="key-notes">Chapter VI-A deductions reduce taxable income:</p>
+          <table class="table table-bordered">
+            <thead class="table-primary">
+              <tr>
+                <th>Section</th>
+                <th>Purpose</th>
+                <th>Limit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>80C</td><td>Life insurance, PPF, EPF, NSC, tuition fees</td><td>₹1.5 lakh</td></tr>
+              <tr><td>80CCC</td><td>Pension fund contributions</td><td>₹1.5 lakh</td></tr>
+              <tr><td>80CCD 1/2</td><td>NPS contributions</td><td>₹50,000 additional (80CCD(1B))</td></tr>
+              <tr><td>80D</td><td>Health insurance premium</td><td>₹25,000–₹100,000</td></tr>
+              <tr><td>80E</td><td>Education loan interest</td><td>No limit</td></tr>
+              <tr><td>80G</td><td>Donations to charity</td><td>50%–100%</td></tr>
+              <tr><td>80TTA/TTB</td><td>Interest on savings</td><td>₹10,000 / ₹50,000 senior citizen</td></tr>
+              <tr><td>80U</td><td>Disabled individuals</td><td>₹75,000–₹1,25,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Remaining Sections can be added similarly -->
+
+  </div>
+</div>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Simple Scroll Animation Script -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const reveals = document.querySelectorAll('.reveal');
+
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        observer.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, {
+                threshold: 0.15 // Trigger when 15% of the element is visible
+            });
+
+            reveals.forEach(el => observer.observe(el));
+        } else {
+            // Fallback for browsers without IntersectionObserver
+            reveals.forEach(el => el.classList.add('in-view'));
+        }
+    });
+</script>
+</body>
+</html>

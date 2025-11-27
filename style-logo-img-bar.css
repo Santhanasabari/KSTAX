@@ -1,0 +1,46 @@
+.logo-img{
+    height: 48px;
+    width: auto;
+    max-width: 220px;
+    display: inline-block;
+}
+
+/* Medium screens (tablets) */
+@media (min-width: 768px) {
+    .logo-img{ height: 60px; }
+}
+
+/* Large screens / laptops */
+@media (min-width: 1200px) {
+    .logo-img{ height: 80px; }
+}
+
+/* Ensure the brand text vertically centers with the logo */
+.navbar-brand { align-items: center; display:inline-flex; gap:.4rem; padding-left:0; margin-left:0; }
+
+/* Bring the brand closer to the left edge by reducing container padding inside navbar */
+.navbar .container{ padding-left:8px; padding-right:12px; }
+
+/* Slightly tighten space between logo and brand text */
+.navbar-brand .logo-img{ margin-right: .25rem; }
+.navbar-brand span{ margin:0; }
+
+/* Make top-level navbar links and brand text bold for emphasis */
+.navbar .nav-link,
+.navbar-brand span {
+    font-weight: 700;
+}
+
+/* Keep dropdown menu items normal weight to avoid visual noise */
+.navbar .dropdown-menu .dropdown-item {
+    font-weight: 400;
+}
+
+/* When a simple top header is used (site-header), center the brand horizontally */
+.site-header .container{
+    justify-content: center !important;
+}
+.site-header .navbar-brand{
+    justify-content: center;
+    text-align: center;
+}

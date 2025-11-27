@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Digital Signature Certificate (DSC) Guide - KS TAXSOLUTION</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-dark: #162d50;
+      --primary-main: #4e73df;
+      --bs-body-bg: #f8f9fa;
+      --bs-body-font-family: 'Poppins', sans-serif;
+    }
+    .navbar {
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+    }
+    .logo-img { height: 40px; }
+    .hero {
+      padding: 5rem 0;
+      background-color: #fff;
+    }
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--primary-dark);
+    }
+    .hero-highlight {
+      color: var(--primary-main);
+    }
+    .hero-image-container {
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    }
+    .content-section {
+      padding: 5rem 0;
+    }
+    .section-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      font-size: 2.2rem;
+    }
+    .section-subtitle {
+      color: #6c7280;
+    }
+    .info-card {
+      background-color: #fff;
+      border: 1px solid #e9ecef;
+      border-radius: 1rem;
+      padding: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+    }
+    .info-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+    .icon-box {
+      width: 50px;
+      height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--primary-main);
+      color: #fff;
+      border-radius: 0.75rem;
+      font-size: 1.5rem;
+    }
+    .step-timeline {
+      position: relative;
+      margin-top: 2rem;
+    }
+    .step-timeline::before {
+      content: "";
+      position: absolute;
+      left: 24px;
+      top: 10px;
+      bottom: 10px;
+      width: 3px;
+      background-color: #e9ecef;
+      border-radius: 2px;
+    }
+    .step-card {
+      position: relative;
+      margin-left: 4rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .step-card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .step-dot {
+      position: absolute;
+      left: -51px;
+      top: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #fff;
+      border: 4px solid var(--primary-main);
+      box-shadow: 0 0 0 4px #fff;
+    }
+    .step-number {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--primary-main);
+    }
+    .step-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      border-radius: 999px;
+      padding: .5rem 1rem;
+      font-size: .9rem;
+      background: #fff;
+      border: 1px solid #dee2e6;
+      margin: .25rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="logo KS.png" alt="KS TAXSOLUTION" class="logo-img me-2">
+        <span class="fw-bold d-none d-sm-inline">KS TAXSOLUTION</span>
+      </a>
+      <a href="index.html" class="btn btn-outline-primary ms-auto d-flex align-items-center gap-1">
+          <i class="bi bi-house-door-fill"></i> <span class="d-none d-sm-inline">Back to Home</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="row gy-5 align-items-center">
+        <div class="col-lg-6">
+          <h1 class="hero-title mb-3">
+            Guide to Digital Signature <span class="hero-highlight">(DSC)</span>
+          </h1>
+          <p class="lead text-secondary mb-4">
+            A complete, step-by-step guide to applying for, verifying, and using your Digital Signature Certificate for all major government portals in India.
+          </p>
+          <div class="d-flex flex-wrap gap-2">
+            <a href="#steps" class="btn btn-primary btn-lg rounded-pill"><i class="bi bi-list-ol me-2"></i>View the Process</a>
+            <a href="#documents" class="btn btn-outline-secondary btn-lg rounded-pill"><i class="bi bi-card-checklist me-2"></i>Required Documents</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="hero-image-container">
+            <img src="https://images.unsplash.com/photo-1677756119517-756a188d2d94?q=80&w=2070&auto=format&fit=crop" class="img-fluid" alt="AI representation of digital security">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What is DSC -->
+  <main>
+    <section id="what-is-dsc" class="content-section">
+      <div class="container">
+        <div class="text-center mx-auto" style="max-width: 600px;">
+          <h2 class="section-title">What is a Digital Signature?</h2>
+          <p class="section-subtitle">DSC serves as your secure, legally valid electronic signature, equivalent to a physical handwritten signature.</p>
+        </div>
+        <div class="row g-4 mt-5">
+          <div class="col-md-4">
+            <div class="info-card text-center">
+              <div class="icon-box mx-auto mb-3"><i class="bi bi-person-badge"></i></div>
+              <h5 class="fw-semibold mb-2">Digital Identity</h5>
+              <p class="small text-muted">It authenticates your identity electronically, ensuring that online documents are verified and secure.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="info-card text-center">
+              <div class="icon-box mx-auto mb-3"><i class="bi bi-shield-check"></i></div>
+              <h5 class="fw-semibold mb-2">High Security</h5>
+              <p class="small text-muted">DSCs use strong encryption, making signed documents tamper-proof and legally protected under the IT Act, 2000.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="info-card text-center">
+              <div class="icon-box mx-auto mb-3"><i class="bi bi-globe2"></i></div>
+              <h5 class="fw-semibold mb-2">Wide Acceptance</h5>
+              <p class="small text-muted">Mandatory for GST, Income Tax, MCA (ROC), e-tendering, PF, and other government portals.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Documents Required -->
+    <section id="documents" class="content-section bg-white">
+      <div class="container">
+        <div class="text-center mx-auto" style="max-width: 600px;">
+          <h2 class="section-title">Documents Required</h2>
+          <p class="section-subtitle">The application process requires standard KYC documents for both individuals and organizations.</p>
+        </div>
+        <div class="row g-4 mt-5">
+          <div class="col-md-6">
+            <div class="info-card">
+              <h5 class="fw-semibold mb-3">For Individuals</h5>
+              <ul class="list-unstyled">
+                <li class="d-flex mb-2"><i class="bi bi-check-circle-fill text-success me-2 mt-1"></i><span>PAN Card copy</span></li>
+                <li class="d-flex mb-2"><i class="bi bi-check-circle-fill text-success me-2 mt-1"></i><span>Aadhaar Card copy (front & back)</span></li>
+                <li class="d-flex"><i class="bi bi-check-circle-fill text-success me-2 mt-1"></i><span>Active Mobile Number & Email ID</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="info-card">
+              <h5 class="fw-semibold mb-3">For Organizations</h5>
+              <ul class="list-unstyled">
+                <li class="d-flex mb-2"><i class="bi bi-check-circle-fill text-success me-2 mt-1"></i><span>All documents listed for Individuals</span></li>
+                <li class="d-flex mb-2"><i class="bi bi-check-circle-fill text-success me-2 mt-1"></i><span>Company/Firm PAN & Registration Proof</span></li>
+                <li class="d-flex"><i class="bi bi-check-circle-fill text-success me-2 mt-1"></i><span>Authorization Letter for the signatory</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step by Step Process -->
+    <section id="steps" class="content-section">
+      <div class="container">
+        <div class="text-center mx-auto" style="max-width: 600px;">
+          <h2 class="section-title">The DSC Application Process</h2>
+          <p class="section-subtitle">Follow these simple steps to obtain your Digital Signature Certificate and USB token.</p>
+        </div>
+        <div class="step-timeline mx-auto" style="max-width: 800px;">
+          <div class="step-card">
+            <div class="step-dot"></div>
+            <div>
+              <div class="step-number">Step 1</div>
+              <div class="step-title">Choose Provider & Type</div>
+              <p class="step-text text-muted small">Select a licensed Certifying Authority (e.g., eMudhra, Sify) and choose a Class 3 DSC with your desired validity (1-3 years).</p>
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-dot"></div>
+            <div>
+              <div class="step-number">Step 2</div>
+              <div class="step-title">Online Application & Document Upload</div>
+              <p class="step-text text-muted small">Fill out the online form with your PAN/Aadhaar details and upload the required documents. Aadhaar eKYC via OTP is the fastest method.</p>
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-dot"></div>
+            <div>
+              <div class="step-number">Step 3</div>
+              <div class="step-title">Complete Video Verification</div>
+              <p class="step-text text-muted small">Follow the link sent to your mobile/email to complete a short live video verification, where you will state your name and show your original PAN/Aadhaar.</p>
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-dot"></div>
+            <div>
+              <div class="step-number">Step 4</div>
+              <div class="step-title">Approval & Download</div>
+              <p class="step-text text-muted small">Once the provider approves your application, you will receive a confirmation. You can then download the DSC into your secure USB token.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Where DSC is Used -->
+    <section id="usage" class="content-section bg-white">
+      <div class="container">
+        <div class="text-center mx-auto" style="max-width: 700px;">
+          <h2 class="section-title">Common Uses of DSC</h2>
+          <p class="section-subtitle">DSC is a versatile tool required for compliance across various government and business portals.</p>
+        </div>
+        <div class="text-center mt-5">
+          <span class="pill"><i class="bi bi-file-earmark-spreadsheet me-2"></i>GST Returns</span>
+          <span class="pill"><i class="bi bi-currency-rupee me-2"></i>Income Tax e-Filing</span>
+          <span class="pill"><i class="bi bi-building-check me-2"></i>MCA/ROC Filings</span>
+          <span class="pill"><i class="bi bi-bag-check me-2"></i>e-Tendering</span>
+          <span class="pill"><i class="bi bi-people me-2"></i>EPFO Portals</span>
+          <span class="pill"><i class="bi bi-globe me-2"></i>Import/Export (DGFT)</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center py-4">
+    <div class="container">
+      <p class="text-muted small mb-0">&copy; 2025 KS TAXSOLUTION. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      document.querySelectorAll(".step-card").forEach((card) => observer.observe(card));
+    });
+  </script>
+</body>
+</html>

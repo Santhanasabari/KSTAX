@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GST Filing Form</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    body { background:#eef4ff; }
+    .card { border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.07); }
+    h4 { color:#202c55; }
+</style>
+</head>
+<body>
+
+<div class="container my-4">
+    <h2 class="text-center fw-bold mb-4">GST FILING BASIC FORMAT</h2>
+
+    <form id="gstForm">
+
+        <!-- Company Info -->
+        <div class="card p-3 mb-3">
+            <h4>1️⃣ Company Information</h4>
+            <div class="row g-3 mt-2">
+                <div class="col-md-6">
+                    <label class="form-label">Company Name</label>
+                    <input type="text" class="form-control" id="companyName">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">GSTIN</label>
+                    <input type="text" class="form-control" id="gstin">
+                </div>
+            </div>
+
+            <div class="row g-3 mt-2">
+                <div class="col-md-12">
+                    <label class="form-label">Address</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+
+            <div class="row g-3 mt-2">
+                <div class="col-md-4">
+                    <label class="form-label">Financial Year</label>
+                    <input type="text" class="form-control" placeholder="2024-2025">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Return Period From</label>
+                    <input type="date" class="form-control">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Return Period To</label>
+                    <input type="date" class="form-control">
+                </div>
+            </div>
+        </div>
+
+        <!-- Return Type -->
+        <div class="card p-3 mb-3">
+            <h4>2️⃣ GST Return Type</h4>
+            <select class="form-select mt-2">
+                <option>GSTR-1 - Outward Supply</option>
+                <option>GSTR-3B - Monthly Summary</option>
+                <option>GSTR-9 - Annual Return</option>
+                <option>GSTR-9C - Audit</option>
+                <option>CMP-08 - Composition</option>
+            </select>
+        </div>
+
+        <!-- Sales -->
+        <div class="card p-3 mb-3">
+            <h4>3️⃣ Sales (Outward Supplies)</h4>
+            <table class="table table-bordered text-center mt-2">
+                <thead class="table-primary">
+                    <tr>
+                        <th>Description</th><th>Taxable Value</th><th>CGST</th><th>SGST</th><th>IGST</th><th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>B2B Sales</td><td><input class="form-control sale"></td><td><input class="form-control"></td><td><input class="form-control"></td><td><input class="form-control"></td><td></td></tr>
+                    <tr><td>B2C Sales</td><td><input class="form-control sale"></td><td><input class="form-control"></td><td><input class="form-control"></td><td><input class="form-control"></td><td></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Purchase -->
+        <div class="card p-3 mb-3">
+            <h4>4️⃣ Purchase & ITC</h4>
+            <table class="table table-bordered text-center mt-2">
+                <thead class="table-success">
+                    <tr>
+                        <th>Supplier</th><th>Taxable Value</th><th>CGST</th><th>SGST</th><th>IGST</th><th>ITC Claim</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Registered</td><td><input class="form-control purchase"></td><td><input class="form-control"></td><td><input class="form-control"></td><td><input class="form-control"></td><td></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Tax Summary -->
+        <div class="card p-3 mb-3">
+            <h4>5️⃣ Tax Summary</h4>
+            <p>Total Sales: ₹ <span id="totalSales">0.00</span></p>
+            <p>Total Purchase: ₹ <span id="totalPurchase">0.00</span></p>
+            <button type="button" class="btn btn-success" onclick="calcTotals()">Calculate Summary</button>
+        </div>
+
+        <!-- Declaration -->
+        <div class="card p-3 mb-3">
+            <h4>6️⃣ Declaration</h4>
+            <label>Authorized Signatory</label>
+            <input type="text" class="form-control">
+            <label class="mt-2">Date</label>
+            <input type="date" class="form-control">
+        </div>
+
+        <button class="btn btn-primary w-100 mt-3" type="submit">Submit</button>
+
+    </form>
+</div>
+
+<script>
+function calcTotals() {
+    let totalSales = 0;
+    document.querySelectorAll('.sale').forEach(i => totalSales += Number(i.value || 0));
+    document.getElementById('totalSales').innerText = totalSales.toFixed(2);
+
+    let totalPurchase = 0;
+    document.querySelectorAll('.purchase').forEach(i => totalPurchase += Number(i.value || 0));
+    document.getElementById('totalPurchase').innerText = totalPurchase.toFixed(2);
+}
+</script>
+
+</body>
+</html>

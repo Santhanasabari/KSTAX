@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Guide to Import & Export Code (IEC) in India - KS TAXSOLUTION</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-dark: #162d50;
+      --primary-main: #4e73df;
+      --bs-body-bg: #f8f9fa;
+      --bs-body-font-family: 'Poppins', sans-serif;
+    }
+    body {
+      padding-top: 70px;
+    }
+    .navbar {
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .logo-img { height: 40px; }
+    .page-header {
+      background-color: #fff;
+      padding: 3rem 0;
+      border-bottom: 1px solid #dee2e6;
+    }
+    .page-header h1 {
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+    .main-content {
+      padding-top: 2rem;
+    }
+    .content-section {
+      background-color: #fff;
+      border-radius: 0.75rem;
+      border: 1px solid #dee2e6;
+      margin-bottom: 2rem;
+      scroll-margin-top: 90px;
+    }
+    .section-header {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid #dee2e6;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .section-header i {
+      font-size: 1.25rem;
+      color: var(--primary-main);
+    }
+    .section-header h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0;
+      color: var(--primary-dark);
+    }
+    .section-body {
+      padding: 1.5rem;
+    }
+    .step-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .step-list > li {
+      position: relative;
+      padding-left: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .step-list > li::before {
+      content: attr(data-step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #e9ecef;
+      color: var(--primary-dark);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+    .step-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .sidebar-nav {
+      position: sticky;
+      top: 90px;
+    }
+    .sidebar-nav .nav-link {
+      color: #6c757d;
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+      border-left: 2px solid transparent;
+    }
+    .sidebar-nav .nav-link:hover {
+      color: #212529;
+    }
+    .sidebar-nav .nav-link.active {
+      color: var(--primary-main);
+      font-weight: 600;
+      border-left-color: var(--primary-main);
+    }
+    .cta-section {
+      background: linear-gradient(45deg, var(--primary-dark), var(--primary-main));
+      color: #fff;
+      border-radius: 0.75rem;
+    }
+  </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#sidebarNav" data-bs-offset="120">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-white fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="logo KS.png" alt="KS TAXSOLUTION" class="logo-img me-2">
+        <span class="fw-bold d-none d-sm-inline">KS TAXSOLUTION</span>
+      </a>
+      <a href="index.html" class="btn btn-outline-primary ms-auto"><i class="bi bi-house-door-fill"></i></a>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <h1 class="display-6">Import & Export (IE) Code Guide</h1>
+      <p class="lead text-muted mb-0">A comprehensive guide to the IE Code and the import/export process in India.</p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="container">
+      <div class="row">
+        <!-- Sidebar -->
+        <div class="col-lg-3 d-none d-lg-block">
+          <nav id="sidebarNav" class="nav sidebar-nav flex-column">
+            <a class="nav-link" href="#basic-setup">Basic Setup</a>
+            <a class="nav-link" href="#iec-code">IEC Code</a>
+            <a class="nav-link" href="#ad-code">AD Code & RCMC</a>
+            <a class="nav-link" href="#export-process">Export Process</a>
+            <a class="nav-link" href="#import-process">Import Process</a>
+            <a class="nav-link" href="#key-laws">Key Laws</a>
+          </nav>
+        </div>
+
+        <!-- Content Sections -->
+        <div class="col-lg-9">
+          <!-- Basic Setup Section -->
+          <section id="basic-setup" class="content-section">
+            <div class="section-header">
+              <i class="bi bi-buildings-fill"></i>
+              <h2>1. Basic Business Setup</h2>
+            </div>
+            <div class="section-body">
+              <p class="text-muted">These preliminary steps are required before initiating any import or export activities.</p>
+              <ul class="step-list">
+                <li data-step="A">
+                  <p class="step-title">Business & Tax Registration</p>
+                  <ul class="small">
+                    <li>Register your business as a Proprietorship, Partnership, LLP, or Private Limited Company.</li>
+                    <li>Obtain a Permanent Account Number (PAN) for the business entity.</li>
+                    <li>Secure GST registration, which is essential for goods trading.</li>
+                  </ul>
+                </li>
+                <li data-step="B">
+                  <p class="step-title">Bank Account</p>
+                  <p class="small mb-0">Open a current account with a bank authorized to deal in foreign exchange (an AD Bank).</p>
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- IEC Code Section -->
+          <section id="iec-code" class="content-section">
+            <div class="section-header">
+              <i class="bi bi-file-earmark-check-fill"></i>
+              <h2>2. Importer-Exporter Code (IEC)</h2>
+            </div>
+            <div class="section-body">
+              <p class="text-muted">A mandatory 10-digit code issued by the Director General of Foreign Trade (DGFT) for the import and export of goods.</p>
+              <ul class="step-list">
+                <li data-step="A">
+                  <p class="step-title">Online Application on DGFT Portal</p>
+                  <p class="small mb-0">Register on the DGFT website (dgft.gov.in), fill out the online application with your business, PAN, and bank details, upload the required documents, and pay the fee to get your IEC instantly.</p>
+                </li>
+              </ul>
+            </div>
+          </section>
+          
+          <!-- AD Code & RCMC Section -->
+          <section id="ad-code" class="content-section">
+            <div class="section-header">
+              <i class="bi bi-bank2"></i>
+              <h2>3. AD Code & RCMC</h2>
+            </div>
+            <div class="section-body">
+              <ul class="step-list">
+                <li data-step="A">
+                  <p class="step-title">Authorised Dealer (AD) Code</p>
+                  <p class="small mb-0">A 14-digit code provided by your bank. It must be registered with customs at each port of export to enable direct crediting of foreign currency transactions and benefits.</p>
+                </li>
+                <li data-step="B">
+                  <p class="step-title">Registration-cum-Membership Certificate (RCMC)</p>
+                  <p class="small mb-0">Issued by Export Promotion Councils (EPCs), this certificate is required to claim various benefits and concessions under the Foreign Trade Policy.</p>
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Export Process Section -->
+          <section id="export-process" class="content-section">
+            <div class="section-header">
+              <i class="bi bi-box-arrow-up-right"></i>
+              <h2>4. The Export Process</h2>
+            </div>
+            <div class="section-body">
+              <p class="fw-bold">Key Stages:</p>
+              <ol class="small">
+                <li><strong>Pre-Shipment:</strong> Secure an order, arrange goods, and prepare documents like the commercial invoice and packing list.</li>
+                <li><strong>Customs Clearance:</strong> File a Shipping Bill on the ICEGATE portal. Goods are inspected and cleared by customs, after which a "Let Export Order" is given.</li>
+                <li><strong>Post-Shipment:</strong> Submit documents to your bank for payment realization. Once payment is received, apply for any eligible export incentives (e.g., GST refund).</li>
+              </ol>
+            </div>
+          </section>
+
+          <!-- Import Process Section -->
+          <section id="import-process" class="content-section">
+            <div class="section-header">
+              <i class="bi bi-box-arrow-down-left"></i>
+              <h2>5. The Import Process</h2>
+            </div>
+            <div class="section-body">
+              <p class="fw-bold">Key Stages:</p>
+              <ol class="small">
+                <li><strong>Pre-Shipment:</strong> Check import policies for your product, obtain necessary licenses, and place the order with the foreign supplier.</li>
+                <li><strong>Shipment & Documentation:</strong> The supplier ships the goods and provides key documents like the Bill of Lading (for sea) or Air Waybill (for air).</li>
+                <li><strong>Customs Clearance:</strong> File a Bill of Entry on the ICEGATE portal. Pay the applicable customs duties and IGST. After clearance, customs issues an "Out of Charge" order.</li>
+                <li><strong>Post-Clearance:</strong> Take delivery of the goods and claim Input Tax Credit (ITC) for the IGST paid, if eligible.</li>
+              </ol>
+            </div>
+          </section>
+
+          <!-- Key Laws Section -->
+          <section id="key-laws" class="content-section">
+            <div class="section-header">
+              <i class="bi bi-gavel"></i>
+              <h2>6. Key Governing Laws</h2>
+            </div>
+            <div class="section-body">
+              <ul class="small">
+                <li><strong>Foreign Trade (Development & Regulation) Act, 1992:</strong> The primary law governing foreign trade, managed by the DGFT.</li>
+                <li><strong>Customs Act, 1962:</strong> Governs the levy of duties and procedures for import/export clearance.</li>
+                <li><strong>Foreign Exchange Management Act (FEMA), 1999:</strong> Regulates payments and foreign exchange, managed by the RBI.</li>
+                <li><strong>GST Laws:</strong> Govern the levy of IGST on imports and refunds for exports.</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- CTA Section -->
+          <section class="cta-section p-4 p-md-5 text-center">
+              <h3 class="fw-bold">Need Professional Assistance?</h3>
+              <p class="mb-4">The import and export process can be complex. Our experts at KS TAXSOLUTION can guide you through every step, ensuring compliance and maximizing your benefits.</p>
+              <a href="contact_2025.html" class="btn btn-light fw-bold px-4">Contact Us Today</a>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-center py-4 text-muted small mt-4">
+    &copy; 2025 KS TAXSOLUTION. All Rights Reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

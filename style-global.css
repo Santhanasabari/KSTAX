@@ -1,0 +1,168 @@
+/* Global corporate styles for KS TAXSOLUTION pages */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+:root{
+  --primary: #0d6efd; /* bootstrap blue */
+  --accent: #0d6efd; /* alias for hero/accent; change to update hero quickly */
+  --hero-height: 140px; /* default hero height */
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --muted: #6c757d;
+  --bg: #f6f8fb;
+  --card-bg: #ffffff;
+  --radius: 10px;
+}
+
+html,body{
+  height:100%;
+  font-family: 'Roboto', Arial, sans-serif;
+  background: var(--bg);
+  color: #222;
+}
+
+.site-container{ max-width:1100px; margin:28px auto; padding:0 18px; }
+
+.hero{
+  background: linear-gradient(90deg, rgba(13,110,253,0.95), rgba(13,110,253,0.85));
+  color: #fff;
+  padding: 36px 20px;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 30px rgba(13,110,253,0.08);
+  min-height: var(--hero-height);
+}
+.hero h1{ margin:0; font-weight:700; letter-spacing:0.2px; }
+.hero p{ margin:6px 0 0; opacity:0.92; }
+
+/* Full-bleed / full-length hero utility */
+.hero-bleed{
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  border-radius: 0; /* remove rounded corners when full-bleed */
+}
+
+/* Full-height utility: make element occupy full viewport height */
+.hero-full{ min-height: 100vh !important; display:flex; align-items:center; }
+
+/* Generic utilities */
+.full-width{ width:100%; margin-left:0; margin-right:0; }
+.full-height{ height:100vh; }
+
+/* Text size helpers */
+.text-lg{ font-size: var(--text-lg); }
+.text-xl{ font-size: var(--text-xl); }
+
+/* Login page layout: place login card and an illustrative image side-by-side on wide screens */
+.login-layout{ display:flex; gap:28px; align-items:center; justify-content:center; }
+.login-side{ display:none; }
+.accounts-image{ width:420px; height:420px; object-fit:cover; border-radius:12px; box-shadow:0 12px 30px rgba(2,6,23,0.08); }
+
+@media (min-width: 992px){
+  .login-side{ display:block; }
+}
+
+/* Allow overriding the accounts image size quickly by utility classes */
+.accounts-image.sm{ width:320px; height:320px; }
+.accounts-image.md{ width:420px; height:420px; }
+.accounts-image.lg{ width:520px; height:520px; }
+
+.step-card{ border:0; border-radius:10px; background:var(--card-bg); box-shadow:0 6px 18px rgba(17,24,39,0.06); overflow:hidden; }
+.step-card .card-header{ background:transparent; color:var(--primary); font-weight:700; font-size:1.03rem; border-bottom:0; }
+.step-card .card-body{ padding:18px 20px; color:var(--muted);} 
+
+.table thead th{ background:var(--primary); color:#fff; border:0; }
+.table tbody td{ vertical-align:middle; }
+
+.footer{ text-align:center; margin-top:28px; padding:18px; color:var(--muted); }
+
+/* Reveal animation utility */
+.reveal{ opacity:0; transform: translateY(12px); transition: opacity 420ms cubic-bezier(.22,.9,.36,1), transform 420ms cubic-bezier(.22,.9,.36,1); }
+.reveal.in-view{ opacity:1; transform:none; }
+
+/* Example box styling */
+.example-box{ background:#f1f6ff; border-left:4px solid var(--primary); padding:14px; border-radius:8px; }
+
+/* Table row micro-interaction */
+.table tbody tr{ transition: transform 180ms ease, background-color 160ms ease; }
+.table tbody tr:hover{ transform: translateX(6px); background: #eef7ff; }
+
+/* Responsive tweaks */
+@media (max-width:768px){
+  .hero{ padding:20px; }
+  .site-container{ padding:0 12px; }
+}
+
+/* Kebab / three-dot icon utilities and dropdown caret sizing */
+.kebab-icon{ display:inline-block; vertical-align:middle; cursor:pointer; color:var(--muted); }
+.kebab-icon.small{ font-size:0.9rem; }
+.kebab-icon.md, .kebab-icon.medium{ font-size:1.25rem; }
+.kebab-icon.large{ font-size:1.6rem; }
+
+/* Make Bootstrap dropdown toggle caret larger and align nicely */
+.dropdown-toggle::after{
+  font-size: 1.05rem;
+  margin-left: 0.45rem;
+}
+
+/* Utility to make caret larger when needed */
+.dropdown-caret-lg .dropdown-toggle::after{ font-size:1.35rem; }
+
+/* If using icon inside dropdown link (bi icons), ensure proper sizing */
+.nav-link .bi{ vertical-align:middle; }
+.nav-link .bi.kebab{ font-size:1.25rem; margin-left:0.25rem; }
+
+/* Navbar spacing and right alignment ------------------------------------------------------ */
+/* Use gap to keep consistent spacing between modules and ensure right alignment via ms-auto on the nav */
+.navbar-nav{
+  display:flex; /* ensure gap works reliably */
+  gap: .45rem; /* consistent space between nav items */
+  align-items:center;
+}
+
+/* Make nav links and buttons visually consistent */
+.navbar .nav-link{
+  padding: .45rem .6rem;
+  color: #222;
+}
+.navbar .nav-item .btn{
+  padding: .35rem .6rem;
+}
+
+/* Tighter spacing for compact appearance on small screens */
+@media (max-width: 767.98px){
+  .navbar-nav{ gap: .25rem; }
+  .navbar .nav-link{ padding: .35rem .45rem; }
+}
+
+/* Main banner: full-bleed hero with responsive heights for four sizes */
+.main-banner{
+  background-image: url('main banner.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 730px; /* desktop target */
+  display:block;
+}
+
+/* Large / laptop */
+@media (max-width: 1199.98px){
+  .main-banner{ height: 560px; }
+}
+
+/* Tablet */
+@media (max-width: 767.98px){
+  .main-banner{ height: 420px; }
+}
+
+/* Mobile */
+@media (max-width: 479.98px){
+  .main-banner{ height: 300px; }
+}
+
+/* When used as hero-bleed ensure no border radius */
+.main-banner.hero-bleed{ border-radius: 0; }
+

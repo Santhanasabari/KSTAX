@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Our Experts - KS TAXSOLUTION</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Poppins', sans-serif;
+    }
+    .site-header {
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .logo-img {
+      height: 50px;
+    }
+    .contact-hero {
+      padding: 4rem 0;
+      text-align: center;
+      background-color: #ffffff;
+    }
+    .contact-hero h1 {
+      font-weight: 700;
+      color: #162d50;
+    }
+    .contact-card {
+      background: #fff;
+      border-radius: 1rem;
+      border: 1px solid #e9ecef;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      padding: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .contact-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+    .profile-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .card-title {
+      font-weight: 600;
+    }
+    .card-subtitle {
+      color: #6c757d;
+    }
+    .contact-info a {
+      color: #212529;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .contact-info a:hover {
+      color: #0d6efd;
+    }
+    .general-info-card {
+      background: #162d50;
+      color: #e9ecef;
+      border-radius: 1rem;
+    }
+    .general-info-card a {
+        color: #fff;
+        font-weight: 500;
+    }
+    /* --- New Nav Link Hover Style --- */
+    .navbar-nav .nav-link {
+        font-weight: 700; /* Bolder font */
+        color: #212529; /* Black text */
+        position: relative;
+        transition: color 0.3s ease;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+    .navbar-nav .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background: linear-gradient(to right, transparent, #0d6efd, transparent);
+        transition: background 0.3s ease;
+    }
+    .navbar-nav .nav-link:hover::after {
+        background: linear-gradient(to right, transparent, #0a58ca, transparent);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Header Replaced -->
+<nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+  <div class="container">
+    <a href="index.html" class="navbar-brand d-flex align-items-center text-decoration-none text-dark">
+      <img src="logo KS.png" alt="KS TAXSOLUTION" class="logo-img me-2">
+      <span class="fs-5 fw-bold d-none d-sm-inline">KS TAXSOLUTION</span>
+    </a>
+
+    <!-- Navigation Toggler -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navigation Links -->
+    <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link d-flex align-items-center gap-1" href="index.html"><i class="bi bi-house-door-fill"></i>Home</a></li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle d-flex align-items-center gap-1" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-briefcase-fill"></i>Services</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="gstregistarion.html">GST Registration</a></li>
+                    <li><a class="dropdown-item" href="GST_Filling_2025.html">GST Filing</a></li>
+                    <li><a class="dropdown-item" href="#">Income Tax Returns</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle d-flex align-items-center gap-1" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-tools"></i>Tools</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="GST_intres_%20calu_excess.html">GST ITC Calculator</a></li>
+                    <li><a class="dropdown-item" href="income_tax_calculator2025.html">Income Tax Calculator</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="contact-hero">
+    <div class="container">
+        <h1 class="display-5 mb-2">Contact Our Experts</h1>
+        <p class="lead text-muted">We are here to help. Reach out to our dedicated specialists for any inquiries.</p>
+    </div>
+</section>
+
+<main class="container py-5">
+  <div class="row g-4 justify-content-center">
+    <!-- Karthick Contact Card -->
+    <div class="col-lg-5">
+      <div class="contact-card text-center">
+        <img src="https://via.placeholder.com/100" alt="Karthick Profile Photo" class="profile-img mx-auto mb-3">
+        <h3 class="card-title h4">Mr. Karthick</h3>
+        <p class="card-subtitle mb-4">Income Tax Specialist</p>
+        <div class="contact-info my-auto">
+          <div class="d-flex align-items-center justify-content-center mb-2">
+            <i class="bi bi-telephone-fill text-primary me-2"></i>
+            <a href="tel:+916379832991">+91 63798 32991</a>
+          </div>
+          <div class="d-flex align-items-center justify-content-center">
+            <i class="bi bi-geo-alt-fill text-primary me-2"></i>
+            <span class="text-muted small">Rameshwaram Mani road, Marriamman Kovil</span>
+          </div>
+        </div>
+        <div class="mt-4 pt-4 border-top">
+          <a href="https://wa.me/916379832991" target="_blank" class="btn btn-success me-2"><i class="bi bi-whatsapp me-1"></i> WhatsApp</a>
+          <button class="btn btn-outline-primary" onclick="downloadVCard('Karthick','Income Tax Specialist','+916379832991')"><i class="bi bi-person-vcard-fill me-1"></i> Save vCard</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Santhanasabari Contact Card -->
+    <div class="col-lg-5">
+      <div class="contact-card text-center">
+        <img src="https://via.placeholder.com/100" alt="Santhanasabari Profile Photo" class="profile-img mx-auto mb-3">
+        <h3 class="card-title h4">Mr. Santhanasabari</h3>
+        <p class="card-subtitle mb-4">GST Specialist / Admin</p>
+        <div class="contact-info my-auto">
+          <div class="d-flex align-items-center justify-content-center mb-2">
+            <i class="bi bi-telephone-fill text-primary me-2"></i>
+            <a href="tel:+917708681384">+91 77086 81384</a>
+          </div>
+          <div class="d-flex align-items-center justify-content-center">
+            <i class="bi bi-geo-alt-fill text-primary me-2"></i>
+            <span class="text-muted small">NO 6 Kannan Complex, Thiruppuvanam</span>
+          </div>
+        </div>
+        <div class="mt-4 pt-4 border-top">
+          <a href="https://wa.me/917708681384" target="_blank" class="btn btn-success me-2"><i class="bi bi-whatsapp me-1"></i> WhatsApp</a>
+          <button class="btn btn-outline-primary" onclick="downloadVCard('Santhanasabari','GST Specialist','+917708681384')"><i class="bi bi-person-vcard-fill me-1"></i> Save vCard</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- General Info Card -->
+  <div class="row mt-5">
+    <div class="col-lg-10 mx-auto">
+        <div class="general-info-card p-4 p-md-5">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h4 class="fw-bold text-white">General Inquiries</h4>
+                    <p class="mb-0">For general questions or mailing, please use the details below.</p>
+                </div>
+                <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                    <a href="mailto:kstaxsolutiontvn@gmail.com" class="btn btn-outline-light"><i class="bi bi-envelope-fill me-2"></i>Email Us</a>
+                </div>
+            </div>
+            <hr class="border-light opacity-25 my-4">
+            <p class="mb-1"><i class="bi bi-building-fill me-2"></i><strong>Office Address:</strong></p>
+            <p class="mb-0 ms-4">NO 6 Kannan Complex, Thiruppuvanam, Sivaganga - 630611</p>
+        </div>
+    </div>
+  </div>
+</main>
+
+<footer class="text-center py-4 text-muted small">
+  &copy; 2025 KS TAXSOLUTION. All Rights Reserved.
+</footer>
+
+<script>
+  function downloadVCard(name, title, phone){
+    const vcard = `BEGIN:VCARD\nVERSION:3.0\nFN:${name}\nTITLE:${title}\nTEL;TYPE=WORK,VOICE:${phone}\nEND:VCARD`;
+    const blob = new Blob([vcard], {type: 'text/vcard'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = name.replace(/\s/g, '_') + '.vcf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

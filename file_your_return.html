@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tax Returns Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background: #f8f9fa; }
+    .card { border-radius: 12px; }
+    .section-title { font-weight:700; }
+    pre { white-space: pre-wrap; }
+    .sticky-form { position: sticky; top: 1rem; }
+    @media (max-width: 991px) { .sticky-form { position: static; } }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+    <div class="container">
+      <a class="navbar-brand" href="#">Tax Returns Dashboard</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#gst">GST</a></li>
+          <li class="nav-item"><a class="nav-link" href="#itr">Income Tax (ITR)</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tds">TDS</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tcs">TCS</a></li>
+          <li class="nav=item"><a class="nav-link" href="index.html">Home</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <!-- GST Card -->
+        <section id="gst" class="mb-4">
+          <div class="card p-3 shadow-sm">
+            <h4 class="section-title">GST Return Filing</h4>
+            <p>Report sales, purchases and GST tax to the government.</p>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead class="table-light"><tr><th>Type</th><th>Who must file?</th><th>Due Date</th><th>Notes</th></tr></thead>
+                <tbody>
+                  <tr><td>GSTR-1</td><td>Businesses making supplies</td><td>Monthly – 11th / Quarterly – 13th</td><td>Upload invoices</td></tr>
+                  <tr><td>GSTR-3B</td><td>All GST-registered businesses</td><td>Monthly – 20th / 22nd / 24th</td><td>Tax payment</td></tr>
+                  <tr><td>GSTR-9</td><td>Turnover above ₹2 Crore</td><td>Yearly – 31st Dec</td><td>Annual return</td></tr>
+                  <tr><td>CMP-08</td><td>Composition scheme taxpayers</td><td>Quarterly</td><td>Simple tax payment</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="mb-0"><strong>Documents required:</strong> Sales & purchase invoices, GST login, payment proofs.</p>
+          </div>
+        </section>
+
+        <!-- ITR Card -->
+        <section id="itr" class="mb-4">
+          <div class="card p-3 shadow-sm">
+            <h4 class="section-title">Income Tax Return (ITR)</h4>
+            <p>File if you have salary, business, rental or capital gains.</p>
+            <div class="row">
+              <div class="col-md-6">
+                <ul>
+                  <li><strong>ITR-1:</strong> Individuals with salary/pension</li>
+                  <li><strong>ITR-2:</strong> Salary + capital gains</li>
+                  <li><strong>ITR-3 / ITR-4:</strong> Businesses/proprietors</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <p><strong>Due dates:</strong></p>
+                <ul>
+                  <li>Individuals (no audit): <code>31st July</code></li>
+                  <li>Business with audit: <code>31st October</code></li>
+                </ul>
+              </div>
+            </div>
+            <p class="mb-0"><strong>Documents required:</strong> PAN, Aadhaar, Form 16, bank statements, P&L, investment proofs (80C).</p>
+          </div>
+        </section>
+
+        <!-- TDS Card -->
+        <section id="tds" class="mb-4">
+          <div class="card p-3 shadow-sm">
+            <h4 class="section-title">TDS (Tax Deducted at Source)</h4>
+            <p>Tax deducted when payment is made (salary, contractor payments, rent).</p>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead class="table-light"><tr><th>Form</th><th>Purpose</th></tr></thead>
+                <tbody>
+                  <tr><td>24Q</td><td>Salary</td></tr>
+                  <tr><td>26Q</td><td>Contractor, professional, rent</td></tr>
+                  <tr><td>27Q</td><td>Non-resident payments</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="mb-0"><strong>Quarterly due dates:</strong> 31 Jul / 31 Oct / 31 Jan / 31 May</p>
+          </div>
+        </section>
+
+        <!-- TCS Card -->
+        <section id="tcs" class="mb-4">
+          <div class="card p-3 shadow-sm">
+            <h4 class="section-title">TCS (Tax Collected at Source)</h4>
+            <p>Collected by seller for specific goods/services (e.g., scrap, foreign tour packages, high-value motor vehicles).</p>
+            <p class="mb-0"><strong>Return:</strong> Form <code>27EQ</code> (quarterly).</p>
+          </div>
+        </section>
+
+        <!-- Who Must Do What -->
+        <section class="mb-4">
+          <div class="card p-3 shadow-sm">
+            <h4 class="section-title">Who must do what?</h4>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead class="table-light"><tr><th>Business Type</th><th>GST</th><th>ITR</th><th>TDS</th><th>TCS</th></tr></thead>
+                <tbody>
+                  <tr><td>Small shop (turnover &lt; ₹40L)</td><td>Optional</td><td>Yes</td><td>No</td><td>No</td></tr>
+                  <tr><td>Contractor business</td><td>Yes</td><td>Yes</td><td>Yes</td><td>No</td></tr>
+                  <tr><td>E-commerce seller</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes (platform)</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="col-lg-4">
+        <div class="sticky-form">
+          <div class="card p-3 shadow-sm">
+            <h5>Your Details & Checklist</h5>
+            <form id="userForm">
+              <div class="mb-2">
+                <label class="form-label">Name</label>
+                <input class="form-control" id="name" placeholder="Your name">
+              </div>
+              <div class="mb-2">
+                <label class="form-label">Business Type</label>
+                <select id="btype" class="form-select">
+                  <option>Contractor</option>
+                  <option>Shop / Retail</option>
+                  <option>E-commerce seller</option>
+                  <option>Employee</option>
+                </select>
+              </div>
+              <div class="mb-2">
+                <label class="form-label">Turnover (₹ per year)</label>
+                <input id="turnover" class="form-control" placeholder="e.g. 2500000">
+              </div>
+              <div class="mb-2 form-check">
+                <input id="hasGST" type="checkbox" class="form-check-input">
+                <label class="form-check-label">I have GST registration</label>
+              </div>
+              <div class="mb-2 form-check">
+                <input id="hasTDS" type="checkbox" class="form-check-input">
+                <label class="form-check-label">I deduct TDS</label>
+              </div>
+              <button type="button" onclick="generateChecklist()" class="btn btn-primary w-100">Generate Checklist</button>
+            </form>
+
+            <hr>
+            <div id="checklist" style="min-height:140px;"></div>
+          </div>
+
+          <div class="mt-3 text-muted small">Tip: Use the navigation links to jump to each section. You can copy this page's code into a file named <code>tax-dashboard.html</code> and open it in your browser.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function generateChecklist(){
+      const name = document.getElementById('name').value || 'User';
+      const btype = document.getElementById('btype').value;
+      const turnover = Number(document.getElementById('turnover').value) || 0;
+      const hasGST = document.getElementById('hasGST').checked;
+      const hasTDS = document.getElementById('hasTDS').checked;
+      const lines = [];
+      lines.push('<p><strong>'+name+' — Recommended actions:</strong></p>');
+      if(turnover > 20000000) lines.push('<div>• File <code>GSTR-9</code> (Annual) and ensure audit reports if applicable.</div>');
+      if(hasGST){
+        lines.push('<div>• Prepare <code>GSTR-1</code> (sales invoices) and <code>GSTR-3B</code> (tax payment) monthly/quarterly.</div>');
+      } else {
+        lines.push('<div>• If turnover exceeds threshold, consider GST registration.</div>');
+      }
+      if(btype === 'Contractor') lines.push('<div>• Maintain contractor invoices, TDS challans and quarterly TDS returns (<code>26Q</code> for contractors).</div>');
+      if(btype === 'E-commerce seller') lines.push('<div>• Platform may collect TCS — gather platform reports and file <code>27EQ</code>.</div>');
+      if(!hasTDS && btype !== 'Employee') lines.push('<div>• Check whether you need to deduct TDS on payments you make.</div>');
+      lines.push('<div>• Keep PAN, Aadhaar, Form 16 (if salaried), bank statements, and 80C proofs for ITR filing.</div>');
+      document.getElementById('checklist').innerHTML = lines.join('');
+      window.location.hash = '#checklist';
+    }
+  </script>
+</body>
+</html>
