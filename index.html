@@ -1,4 +1,1002 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KS TAXSOLUTION </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="logo KS.png" type="image/png">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+      font-size: 1rem; /* Base font size increased for better readability */
+    }
+    .navbar {
+      transition: all 0.3s ease-in-out; /* Smooth transitions for background/shadow */
+      padding: 0.85rem 0; /* Slightly more padding */
+    }
+    .navbar-brand .logo-img {
+      height: 45px; /* Slightly larger logo */
+    }
+    .navbar-brand span {
+      font-weight: 800; /* Extra bold for brand name */
+      font-size: 1.35rem; /* Slightly larger brand text */
+      color: #343a40; /* Darker text for brand */
+    }
+
+    /* Nav Links */
+    .navbar .nav-link {
+        font-weight: 600; /* Bolder links */
+        color: #343a40; /* Darker text for navigation links */
+        padding: 0.6rem 1rem;
+        position: relative;
+        transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        display: flex; /* For icon alignment */
+        align-items: center; /* For icon alignment */
+        gap: 0.5rem; /* Space between icon and text */
+    }
+    .navbar .nav-link i { /* Icon styling */
+        font-size: 1.1em; /* Slightly larger icons */
+        transition: color 0.3s ease-in-out;
+    }
+
+    .navbar .nav-link:hover,
+    .navbar .nav-link.active {
+        color: #2c5fd8; /* Primary blue on hover/active */
+        transform: translateY(-3px); /* More pronounced lift */
+    }
+    .navbar .nav-link:hover i,
+    .navbar .nav-link.active i {
+        color: #2c5fd8; /* Icon color matches link */
+    }
+
+    .navbar .nav-link::after { /* Underline effect */
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 3px; /* Thicker underline */
+        bottom: -8px; /* Position below text */
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #2c5fd8; /* Primary blue underline */
+        transition: width 0.3s ease-in-out;
+        border-radius: 2px; /* Soft edges for underline */
+    }
+    .navbar .nav-link:hover::after,
+    .navbar .nav-link.active::after {
+        width: 70%; /* Width of the underline on hover */
+    }
+
+    /* Dropdown menu styling */
+    .navbar .dropdown-menu {
+        border: none;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Stronger shadow */
+        border-radius: 0.75rem;
+        margin-top: 15px; /* More space */
+        animation: fadeInScale 0.35s ease-out forwards; /* Slightly slower animation */
+        opacity: 0;
+        transform: scale(0.9) translateY(-10px); /* Start smaller and higher */
+        transform-origin: top center;
+        padding: 0.5rem 0; /* Padding inside dropdown */
+    }
+    @keyframes fadeInScale {
+        from { opacity: 0; transform: scale(0.9) translateY(-10px); }
+        to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .navbar .dropdown-item {
+        font-weight: 500;
+        color: #495057; /* Darker dropdown item text */
+        padding: 0.75rem 1.25rem;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    .navbar .dropdown-item:hover {
+        background-color: #e6ffe6; /* Light green background on hover */
+        color: #28a745; /* Professional green text on hover */
+    }
+
+    /* Specific Button Styling for Login/Register */
+    .navbar .btn-custom-outline { /* For Login */
+        border: 2px solid #2c5fd8; /* Thicker border */
+        color: #2c5fd8;
+        background-color: transparent;
+        border-radius: 50px;
+        padding: 10px 24px; /* More padding */
+        font-weight: 600;
+        transition: all 0.3s ease;
+        margin-left: 1.5rem; /* More separation */
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+    .navbar .btn-custom-outline:hover {
+        background-color: #2c5fd8;
+        color: white;
+        box-shadow: 0 6px 20px rgba(44, 95, 216, 0.35); /* Stronger shadow */
+        transform: translateY(-3px);
+    }
+    .navbar .btn-custom-primary { /* For Register */
+        background-color: #2c5fd8;
+        color: white;
+        border: 2px solid #2c5fd8; /* Ensure consistent border width */
+        border-radius: 50px;
+        padding: 10px 24px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        margin-left: 0.75rem; /* Consistent separation */
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+    .navbar .btn-custom-primary:hover {
+        background-color: #234da3; /* Slightly darker primary blue */
+        box-shadow: 0 6px 20px rgba(44, 95, 216, 0.45);
+        transform: translateY(-3px);
+    }
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(45deg, rgba(22, 45, 80, 0.9), rgba(78, 115, 223, 0.9)), url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1911&auto=format&fit=crop') no-repeat center center;
+      background-size: cover;
+      color: #fff;
+      padding: 190px 0; /* Adjusted padding to increase hero section height */
+      text-align: center;
+    }
+    .hero-title {
+      font-size: clamp(2.8rem, 5vw, 4rem); /* Adjusted font size for hero title */
+      font-weight: 700;
+      animation: fadeInDown 1s ease-out;
+    }
+    .hero-subtitle {
+      font-size: clamp(1.2rem, 2vw, 1.45rem); /* Adjusted font size for hero subtitle */
+      margin-bottom: 2rem;
+      animation: fadeInUp 1s ease-out 0.5s;
+      animation-fill-mode: both;
+    }
+    .hero .btn {
+      padding: 12px 30px;
+      font-weight: 600;
+      border-radius: 50px;
+      animation: fadeInUp 1s ease-out 1s;
+      animation-fill-mode: both;
+    }
+    /* Section Styles */
+    section {
+      padding: 80px 0;
+    }
+    .section-title {
+      font-size: clamp(2.2rem, 4vw, 3rem); /* Adjusted font size for section titles */
+      font-weight: 700;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background-color: #4e73df;
+    }
+    .section-subtitle { /* Added this for consistency with other section-titles */
+        font-size: clamp(1.1rem, 1.8vw, 1.35rem); /* Adjusted font size for section subtitles */
+        color: #6c757d;
+        max-width: 700px;
+        margin: 0 auto 3rem auto;
+    }
+    /* Service Card */
+    .service-card {
+      background: #fff;
+      border-radius: 1rem;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+    .service-card .icon {
+      font-size: 3rem;
+      color: #4e73df;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease; /* Added for icon animation */
+    }
+    .service-card h5 { /* Adjusted for service card titles */
+        font-size: 1.3rem;
+    }
+    .service-card:hover .icon { /* Added for icon animation on hover */
+      transform: translateY(-5px);
+    }
+    /* Footer */
+    .footer {
+      background-color: #162d50;
+      color: #adb5bd;
+      padding: 60px 0;
+    }
+    .footer h5 {
+      color: #fff;
+      font-weight: 600;
+    }
+    .footer a {
+      color: #adb5bd;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer a:hover {
+      color: #fff;
+    }
+    /* Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @keyframes fadeInDown { from { opacity:0; transform: translateY(-20px); } to { opacity:1; transform: translateY(0); } }
+    @keyframes fadeInUp { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: translateY(0); } }
+
+    /* WORK PROCESS SECTION - Redesign with Violet and Green */
+    #process {
+      background-color: #f8f9fa; /* Light background for the section */
+    }
+    #process .section-title, #process .section-subtitle {
+        text-align: center; /* Center the title and subtitle for the section */
+        max-width: 800px; /* Optional: limit width of subtitle for better readability */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Timeline Container */
+    .timeline {
+        position: relative;
+        padding-left: 50px; /* Space for the line and dots */
+        list-style: none; /* Remove default list styling */
+        margin: 0;
+    }
+    .timeline::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 20px; /* Position of the vertical line */
+        width: 2px;
+        height: 100%;
+        background: #A5D6A7; /* Light Green for the timeline line */
+    }
+
+    /* Individual Timeline Step */
+    .timeline-step {
+        position: relative;
+        margin-bottom: 40px; /* Increased space between steps */
+        padding: 20px 20px 20px 30px; /* Adjusted padding-left for better spacing */
+        background-color: #fff;
+        border-radius: 0.75rem;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05); /* Subtle shadow for card effect */
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-color 0.3s ease;
+        border-left: 4px solid transparent; /* Accent border */
+    }
+    .timeline-step:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        border-left-color: #673AB7; /* Violet accent color on hover */
+    }
+    .timeline-step:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Timeline Badge (the number) */
+    .timeline-badge {
+        position: absolute;
+        left: -49px; /* Positioned to center the badge on the vertical line */
+        top: 20px; /* Aligns with the top of the step content card */
+        width: 40px;
+        height: 40px;
+        background: #673AB7; /* Violet background for badge */
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700; /* Bolder numbers */
+        font-size: 1.2rem;
+        box-shadow: 0 0 0 4px #fff, 0 0 0 7px rgba(103, 58, 183, 0.3); /* Violet shadow for depth */
+        z-index: 1; /* Ensure badge is above the line */
+    }
+
+    /* Text within Timeline Step */
+    .timeline-step h6 {
+        font-weight: 700; /* Bolder titles */
+        color: #162d50; /* Darker title color */
+        margin-bottom: 8px;
+        font-size: 1.15rem;
+    }
+    .timeline-step p {
+        font-size: 1rem; /* Standard font size for timeline text */
+        line-height: 1.6;
+        color: #6c757d; /* Muted text color for body */
+        margin-bottom: 0;
+    }
+    /* Chat Widget Styles */
+    #chat-toggle {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        background-color: #4e73df;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        z-index: 1000;
+        transition: transform 0.3s ease;
+    }
+    #chat-toggle:hover {
+        transform: scale(1.1);
+    }
+    #chat-container {
+        position: fixed;
+        bottom: 100px;
+        right: 30px;
+        width: 350px;
+        max-width: 90%;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+        z-index: 999;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    }
+    #chat-container.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    .chat-header {
+        background: #4e73df;
+        color: white;
+        padding: 15px;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .chat-header .btn-close {
+        filter: invert(1) grayscale(100%) brightness(200%);
+    }
+    #chat-box {
+        height: 300px;
+        padding: 15px;
+        overflow-y: auto;
+        flex-grow: 1;
+        font-size: 0.9rem;
+    }
+    #chat-box p {
+        margin-bottom: 15px;
+        line-height: 1.5;
+    }
+    #chat-box .bot-msg {
+        background-color: #f1f1f1;
+        padding: 10px 15px;
+        border-radius: 15px 15px 15px 0;
+        display: inline-block;
+        max-width: 85%;
+    }
+    #chat-box .user-msg {
+        text-align: right;
+    }
+    #chat-box .user-msg span {
+        background-color: #eaf1ff;
+        color: #333;
+        padding: 10px 15px;
+        border-radius: 15px 15px 0 15px;
+        display: inline-block;
+        max-width: 85%;
+        text-align: left;
+    }
+    .chat-input {
+        display: flex;
+        padding: 10px;
+        border-top: 1px solid #eee;
+    }
+    .chat-input input {
+        flex-grow: 1;
+        border: none;
+        padding: 10px;
+        border-radius: 20px;
+        background-color: #f1f1f1;
+    }
+    .chat-input input:focus {
+        outline: none;
+        box-shadow: none;
+    }
+    .chat-input button {
+        background: none;
+        border: none;
+        color: #4e73df;
+        font-size: 1.5rem;
+        margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="logo KS.png" alt="KS TAXSOLUTION" class="logo-img me-2">
+        <span>KS TAXSOLUTION</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-door-fill"></i>Home</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-briefcase-fill"></i>Services</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="gstregistarion.html">GST Registration</a></li>
+              <li><a class="dropdown-item" href="GST_Filling_2025.html">GST Filing</a></li>
+              <li><a class="dropdown-item" href="icome tax _ main_2025.html">Income Tax Returns</a></li>
+              <li><a class="dropdown-item" href="tds_tcs_2025.html">TDS & TCS Services</a></li>
+              <li><a class="dropdown-item" href="IEcode.html">Import and Export (IE) Code</a></li>
+              <li><a class="dropdown-item" href="dsc_2.html">Digital Signature Certificate</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-tools"></i>Tools</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="GST_intres_%20calu_excess.html">GST ITC Calculator</a></li>
+              <li><a class="dropdown-item" href="income_tax_calculator2025.html">Income Tax Calculator</a></li>
+              <li><a class="dropdown-item" href="BPDS .html">Accounts sheets</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="contact_2025.html"><i class="bi bi-telephone-fill"></i>Contact</a></li>
+          <li class="nav-item ms-lg-3">
+            <a class="btn-custom-outline" href="login.html">
+              <i class="bi bi-box-arrow-in-right"></i> Login
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="btn-custom-primary" href="register.html">
+              <i class="bi bi-person-plus"></i> Register
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container">
+      <h1 class="hero-title">Simplify Your Tax & Compliance</h1>
+      <p class="hero-subtitle">Your trusted partner for GST, Income Tax, and business registration services.</p>
+      <a href="#services" class="btn btn-primary btn-lg">Explore Services</a>
+      <a href="contact_2025.html" class="btn btn-outline-light btn-lg">Contact Us</a>
+    </div>
+  </header>
+
+  <!-- Services Section -->
+  <section id="services">
+    <div class="container text-center">
+      <h2 class="section-title reveal">Comprehensive Services We Provide</h2>
+      <p class="section-subtitle reveal">
+        End-to-end tax consultancy services for individuals and businesses.
+      </p>
+      <div class="row g-4 mt-4">
+        <!-- Service 1 -->
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="card service-card p-3 h-100">
+            <div class="icon"><i class="bi bi-person-lines-fill"></i></div>
+            <h5 class="fw-bold mb-3">Income Tax Consultancy</h5>
+            <p class="small text-muted">
+              Complete support for individual and business income tax matters.
+            </p>
+            <ul class="small text-start ps-3">
+              <li>Tax planning and savings strategy</li>
+              <li>Income Tax Return (ITR) filing</li>
+              <li>Capital gain & business income computation</li>
+              <li>Advance tax & TDS advisory</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="col-md-6 col-lg-4 reveal" style="transition-delay: 100ms;">
+          <div class="card service-card p-3 h-100">
+            <div class="icon"><i class="bi bi-receipt-cutoff"></i></div>
+            <h5 class="fw-bold mb-3">GST Consultancy</h5>
+            <p class="small text-muted">
+              From registration to monthly returns and audits.
+            </p>
+            <ul class="small text-start ps-3">
+              <li>GST registration & amendments</li>
+              <li>GSTR-1, 3B, 9, 9C filing</li>
+              <li>Input Tax Credit (ITC) reconciliation</li>
+              <li>GST audit and departmental queries</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="col-md-6 col-lg-4 reveal" style="transition-delay: 200ms;">
+          <div class="card service-card p-3 h-100">
+            <div class="icon"><i class="bi bi-journal-check"></i></div>
+            <h5 class="fw-bold mb-3">Tax Notices & Representation</h5>
+            <p class="small text-muted">
+              Professional support for any communication from tax department.
+            </p>
+            <ul class="small text-start ps-3">
+              <li>Reply to Income Tax & GST notices</li>
+              <li>Scrutiny, assessment, and appeals</li>
+              <li>Liaison with tax authorities</li>
+              <li>Documentation & case preparation</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="col-md-6 col-lg-4 reveal" style="transition-delay: 300ms;">
+          <div class="card service-card p-3 h-100">
+            <div class="icon"><i class="bi bi-building"></i></div>
+            <h5 class="fw-bold mb-3">Business & Startup Advisory</h5>
+            <p class="small text-muted">
+              Tax-efficient structuring and registrations for new and existing
+              businesses.
+            </p>
+            <ul class="small text-start ps-3">
+              <li>Choosing business form (Proprietorship, Partnership, LLP, Company)</li>
+              <li>PAN, TAN & Professional Tax registrations</li>
+              <li>Tax impact analysis for business decisions</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="col-md-6 col-lg-4 reveal" style="transition-delay: 400ms;">
+          <div class="card service-card p-3 h-100">
+            <div class="icon"><i class="bi bi-book"></i></div>
+            <h5 class="fw-bold mb-3">Bookkeeping & Compliance</h5>
+            <p class="small text-muted">
+              Accurate records for legal compliance and decision making.
+            </p>
+            <ul class="small text-start ps-3">
+              <li>Bookkeeping & ledger maintenance</li>
+              <li>Periodic financial statements</li>
+              <li>Support for tax audit & statutory audit</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="col-md-6 col-lg-4 reveal" style="transition-delay: 500ms;">
+          <div class="card service-card p-3 h-100">
+            <div class="icon"><i class="bi bi-currency-dollar"></i></div>
+            <h5 class="fw-bold mb-3">Personal Tax Planning</h5>
+            <p class="small text-muted">
+              Legal methods to minimise your tax burden.
+            </p>
+            <ul class="small text-start ps-3">
+              <li>Investment planning under relevant sections</li>
+              <li>HRA, housing loan, and other deductions</li>
+              <li>Retirement & long-term tax planning</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section id="why-choose-us" class="bg-white">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6 reveal">
+                <img src="account main.png" class="img-fluid rounded shadow-lg" alt="Business meeting">
+            </div>
+            
+            <div class="col-lg-6 reveal">
+                <h2 class="fw-bold mb-3">Why Partner with KS TAXSOLUTION?</h2>
+                <p class="text-muted mb-4">We are dedicated to providing reliable, timely, and professional services to help your business thrive.</p>
+                <ul class="list-unstyled">
+                    <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-primary fs-4 me-3"></i><div><strong>Expert Guidance:</strong> Our team of professionals provides accurate and up-to-date advice.</div></li>
+                    <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-primary fs-4 me-3"></i><div><strong>Timely Compliance:</strong> We ensure all your filings and registrations are completed on schedule to avoid penalties.</div></li>
+                    <li class="d-flex"><i class="bi bi-check-circle-fill text-primary fs-4 me-3"></i><div><strong>Client-Focused:</strong> We are committed to understanding your needs and providing personalized solutions.</div></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6 reveal">
+          <h2 class="section-title">Our Tax Consultancy Work</h2>
+          <p class="section-subtitle">
+            We support you in every step of your tax journey – from planning to
+            filing and representation.
+          </p>
+          <p>
+            As professional tax consultants, we ensure that all your
+            <b>Income Tax</b>, <b>GST</b>, and other statutory compliances are
+            done correctly and on time. Our goal is to provide
+            <b>legally correct, practical, and tax-efficient solutions</b> that
+            fit your specific situation.
+          </p>
+          <p>
+            We work with salaried individuals, small and medium businesses,
+            professionals, and organisations to manage their complete tax
+            lifecycle.
+          </p>
+        </div>
+        <div class="col-lg-6 reveal">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="card info-card p-3 h-100">
+                <div class="icon"><i class="bi bi-wallet-fill"></i></div>
+                <h6>Income Tax Work</h6>
+                <p class="small text-muted mb-0">
+                  ITR filing, advance tax, TDS, capital gains, and tax planning
+                  for individuals & firms.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card info-card p-3 h-100">
+                <div class="icon"><i class="bi bi-card-checklist"></i></div>
+                <h6>GST Consultancy</h6>
+                <p class="small text-muted mb-0">
+                  GST registration, monthly/annual returns, e-way bill, GST
+                  audit support, and notices.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card info-card p-3 h-100">
+                <div class="icon"><i class="bi bi-person-vcard-fill"></i></div>
+                <h6>Representation</h6>
+                <p class="small text-muted mb-0">
+                  Reply to notices, attend assessments, appeals, and assist in
+                  hearings before tax authorities.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card info-card p-3 h-100">
+                <div class="icon"><i class="bi bi-bar-chart-fill"></i></div>
+                <h6>Compliance & Records</h6>
+                <p class="small text-muted mb-0">
+                  Books of account, reports, and documentation for audits &amp;
+                  statutory requirements.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK PROCESS SECTION -->
+  <section id="process" class="py-5">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6 reveal">
+          <h2 class="section-title">How Our Tax Consultancy Work Happens</h2>
+          <p class="section-subtitle">
+            A simple, transparent process from first meeting to final filing.
+          </p>
+          <div class="timeline">
+            <div class="timeline-step reveal" style="transition-delay: 100ms;">
+              <div class="timeline-badge">1</div>
+              <h6>Understanding Your Profile</h6>
+              <p>
+                We discuss your income sources, business structure, and
+                existing tax situation.
+              </p>
+            </div>
+            <div class="timeline-step reveal" style="transition-delay: 200ms;">
+              <div class="timeline-badge">2</div>
+              <h6>Tax Planning & Strategy</h6>
+              <p>
+                We identify applicable deductions, exemptions, and correct
+                tax structure to save tax legally.
+              </p>
+            </div>
+            <div class="timeline-step reveal" style="transition-delay: 300ms;">
+              <div class="timeline-badge">3</div>
+              <h6>Documentation & Data Collection</h6>
+              <p>
+                We collect bank statements, invoices, investment proofs, and
+                required records.
+              </p>
+            </div>
+            <div class="timeline-step reveal" style="transition-delay: 400ms;">
+              <div class="timeline-badge">4</div>
+              <h6>Return Preparation & Filing</h6>
+              <p>
+                We prepare and file your Income Tax and GST returns on time,
+                after your approval.
+              </p>
+            </div>
+            <div class="timeline-step reveal" style="transition-delay: 500ms;">
+              <div class="timeline-badge">5</div>
+              <h6>Continuous Support & Representation</h6>
+              <p>
+                We provide year-round support and represent you for any tax
+                notices or queries.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 reveal">
+          <div class="card info-card p-4">
+            <h5>Who Can Use Our Tax Consultancy Services?</h5>
+            <ul class="small mt-3">
+              <li>Salaried employees with single or multiple incomes</li>
+              <li>Small and medium business owners</li>
+              <li>Traders, manufacturers, and service providers</li>
+              <li>Professionals – doctors, lawyers, CAs, consultants, etc.</li>
+              <li>Partnership firms, LLPs, and companies</li>
+              <li>Trusts, societies, and NGOs</li>
+            </ul>
+            <div class="alert alert-secondary small mb-0">
+              <b>Reminder:</b> Everyone who earns income and crosses the basic
+              exemption limit must comply with tax laws. Professional
+              consultancy ensures they do it correctly.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="py-5 bg-light">
+    <div class="container">
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-8 reveal">
+          <div class="card service-card p-4 p-md-5">
+            <div class="row">
+              <div class="col-lg-6 mb-4 mb-lg-0">
+                <h3 class="mb-2">Book a Tax Consultation</h3>
+                <p class="mb-4" style="font-size: 0.95rem;">
+                  Share your basic details and we will get back to you with a
+                  personalised tax consultancy plan.
+                </p>
+                <p class="mb-1">
+                  <i class="bi bi-geo-alt-fill me-2 text-primary"></i> Office: NO 6 Kannan Complex Thiruppuvanam Sivaganga Dist -630611
+                </p>
+                <p class="mb-1">
+                  <i class="bi bi-telephone-fill me-2 text-primary"></i> Phone: +91 7708681384
+                </p>
+                <p class="mb-0">
+                  <i class="bi bi-envelope-fill me-2 text-primary"></i> Email: info@kstaxsolution.com
+                </p>
+              </div>
+              <div class="col-lg-6">
+                <!-- Only UI form, no backend -->
+                <form>
+                  <div class="mb-3">
+                    <label for="contactName" class="form-label">Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="contactName"
+                      placeholder="Your full name"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="contactEmail" class="form-label">Mobile / Email</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="contactEmail"
+                      placeholder="Your contact details"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="clientType" class="form-label">Type of Client</label>
+                    <select class="form-select" id="clientType">
+                      <option selected>Select one</option>
+                      <option>Salaried Individual</option>
+                      <option>Business Owner</option>
+                      <option>Professional</option>
+                      <option>Firm / Company</option>
+                      <option>Trust / NGO</option>
+                    </select>
+                  </div>
+                  <div class="d-grid mt-4">
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Chat Widget -->
+  <div id="chat-widget">
+    <div id="chat-toggle">
+        <i class="bi bi-chat-dots-fill"></i>
+    </div>
+    <div id="chat-container">
+        <div class="chat-header">
+            <span>AI GST & Tax Assistant</span>
+            <button type="button" class="btn-close" id="chat-close-btn" aria-label="Close"></button>
+        </div>
+        <div id="chat-box">
+            <!-- Messages will be appended here -->
+        </div>
+        <div class="chat-input">
+            <input type="text" id="user-input" class="form-control" placeholder="Ask a question...">
+            <button id="send-btn"><i class="bi bi-send-fill"></i></button>
+        </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 reveal">
+          <h5>KS TAXSOLUTION</h5>
+          <p>Your one-stop solution for tax consultation and financial services. We are committed to your business's success.</p>
+        </div>
+        <div class="col-lg-2 offset-lg-1 reveal" style="transition-delay: 100ms;">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="contact_2025.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 reveal" style="transition-delay: 200ms;">
+          <h5>Our Branches</h5>
+          <ul class="list-unstyled">
+            <li><a href="https://www.google.com/maps/place/Tiruppuvanam,+Tamil+Nadu+630611/">Thiruppuvanam</a></li>
+            <li><a href="https://www.google.com/maps/place/Sivaganga,+Tamil+Nadu+630561/">Sivaganga</a></li>
+            <li><a href="https://www.google.com/maps/place/Coimbatore,+Tamil+Nadu/">Coimbatore</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 reveal" style="transition-delay: 300ms;">
+          <h5>Contact Us</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-envelope-fill me-2"></i> <a href="mailto:kstaxsolutiontvn@gmail.com">kstaxsolutiontvn@gmail.com</a></li>
+            <li><i class="bi bi-telephone-fill me-2"></i> +91 12345 67890</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="my-4">
+      <div class="text-center">
+        <p class="mb-0">&copy; 2025 KS TAXSOLUTION. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Scroll reveal animation
+    const reveals = document.querySelectorAll(".reveal");
+
+    function handleReveal() {
+      const triggerBottom = window.innerHeight * 0.9;
+      reveals.forEach(el => {
+        if (el.getBoundingClientRect().top < triggerBottom) {
+          el.classList.add("show");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", handleReveal);
+    document.addEventListener("DOMContentLoaded", handleReveal);
+
+    // Chat Widget JS
+    const chatToggle = document.getElementById('chat-toggle');
+    const chatContainer = document.getElementById('chat-container');
+    const chatCloseBtn = document.getElementById('chat-close-btn');
+    const chatBox = document.getElementById('chat-box');
+    const userInput = document.getElementById('user-input');
+    const sendBtn = document.getElementById('send-btn');
+
+    // Toggle chat window
+    chatToggle.addEventListener('click', () => {
+        chatContainer.classList.toggle('active');
+    });
+
+    chatCloseBtn.addEventListener('click', () => {
+        chatContainer.classList.remove('active');
+    });
+
+    // Add initial bot message
+    function addBotMessage(message) {
+        const botMessage = `<p class="bot-msg">${message}</p>`;
+        chatBox.innerHTML += botMessage;
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    addBotMessage("Welcome to KS TAXSOLUTION! I'm your AI assistant. You can ask me about our services like GST, Income Tax, or how we can help with your tax planning.");
+
+    function handleSendMessage() {
+        const message = userInput.value.trim();
+        if (message === "") return;
+
+        // Add user message to chatbox
+        const userMessage = `<p class="user-msg"><span>${message}</span></p>`;
+        chatBox.innerHTML += userMessage;
+        userInput.value = "";
+        chatBox.scrollTop = chatBox.scrollHeight;
+
+        // Simulate bot response
+        setTimeout(() => {
+            let botResponse = "I can provide general information on tax topics. For a detailed analysis of your specific situation, our expert consultants are here to help. You can book a consultation through our contact form.";
+            const lowerCaseMessage = message.toLowerCase();
+
+            if (lowerCaseMessage.includes("hello") || lowerCaseMessage.includes("hi")) {
+                botResponse = "Hello! How can I assist you with your tax questions today? Feel free to ask about GST, Income Tax, or tax planning.";
+            } else if (lowerCaseMessage.includes("analysis") || lowerCaseMessage.includes("plan") || lowerCaseMessage.includes("help my tax")) {
+                botResponse = "At KS TAXSOLUTION, a full tax analysis involves:<br>1. <b>Understanding Your Profile:</b> We review your income sources and business structure.<br>2. <b>Identifying Savings:</b> We find all applicable deductions and exemptions to minimize your tax legally.<br>3. <b>Ensuring Compliance:</b> We make sure all filings are accurate and on time.<br><br>This personalized approach is key to effective tax management. Would you like to know more about our GST or Income Tax services?";
+            } else if (lowerCaseMessage.includes("gst process") || lowerCaseMessage.includes("steps for gst")) {
+                botResponse = "Our GST registration process is simple and transparent, handled in 4 easy steps:<br>1. <b>Document Submission:</b> You provide us the necessary documents.<br>2. <b>Application Filing:</b> We verify and file the application.<br>3. <b>Department Verification:</b> We handle any departmental queries.<br>4. <b>GSTIN Allotment:</b> You receive your GSTIN certificate. For full details, please see our GST Registration page.";
+            } else if (lowerCaseMessage.includes("gst document")) {
+                botResponse = "The documents for GST registration depend on your business type. For a <b>Proprietor</b>, we need PAN, Aadhaar, photo, and address proof. For a <b>Company</b>, we need the Company PAN, Certificate of Incorporation, and Director's details. You can find the complete checklist on our GST registration service page.";
+            } else if (lowerCaseMessage.includes("gst")) {
+                botResponse = "Our GST Consultancy is a complete package. We handle everything from:<br>• New GST Registration<br>• Monthly & Annual Filings (GSTR-1, 3B, 9)<br>• ITC Reconciliation<br>• Responding to Notices<br><br>We ensure you are 100% compliant so you can focus on your business.";
+            } else if (lowerCaseMessage.includes("tds") || lowerCaseMessage.includes("tcs")) {
+                botResponse = "We offer comprehensive TDS & TCS services, ensuring your compliance is handled perfectly. Our services include:<br>• Timely filing of TDS/TCS returns (like 24Q, 26Q, 27EQ).<br>• Issuing TDS certificates such as Form 16 & 16A.<br>• Correction of returns and handling defaults.<br>• Advisory on TDS/TCS rates and rules. For more details, please see our dedicated TDS/TCS services page.";
+            } else if (lowerCaseMessage.includes("income tax") || lowerCaseMessage.includes("itr")) {
+                botResponse = "Our Income Tax services cover all your needs, whether you are salaried or a business owner. We provide:<br>• <b>ITR Filing:</b> For all types of income (salary, business, capital gains).<br>• <b>Tax Planning:</b> To maximize your savings legally under sections like 80C.<br>• <b>Notice Management:</b> Expert handling of any communication from the IT department.<br>• <b>Advisory:</b> On complex matters like advance tax and capital gains.";
+            } else if (lowerCaseMessage.includes("contact") || lowerCaseMessage.includes("address") || lowerCaseMessage.includes("phone")) {
+                botResponse = "You can easily book a consultation through our contact page! Our office is at <b>NO 6 Kannan Complex, Thiruppuvanam, Sivaganga Dist - 630611</b>. You can also call us at <b>+91 7708681384</b> or email <b>info@kstaxsolution.com</b>. We're ready to help!";
+            } else if (lowerCaseMessage.includes("services")) {
+                botResponse = "We offer end-to-end tax solutions! Our core services include:<br>• GST & Income Tax Consultancy<br>• TDS & TCS Compliance<br>• Tax Notice Representation<br>• Business & Startup Advisory<br>• Bookkeeping & Compliance<br><br>Which service are you most interested in?";
+            } else if (lowerCaseMessage.includes("fee") || lowerCaseMessage.includes("cost") || lowerCaseMessage.includes("charge")) {
+                botResponse = "Our fees depend on the specific service you require. For a detailed quote, please get in touch with us through the contact form, and we'll provide a personalized plan for you.";
+            }
+            
+            addBotMessage(botResponse);
+        }, 1200);
+    }
+
+    sendBtn.addEventListener('click', handleSendMessage);
+    userInput.addEventListener('keyup', (event) => {
+        if (event.key === 'Enter') {
+            handleSendMessage();
+        }
+    });
+  </script>
+</body>
+</html>
+
+
+
+!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
