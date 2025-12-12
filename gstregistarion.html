@@ -3,39 +3,265 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GST Registration Guide — Regular | Composition | Partnership | Pvt Ltd | Public Ltd</title>
+  <title>Online GST Registration Services | KS TAXSOLUTION</title>
   <!-- Bootstrap 5 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Bootstrap Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{--accent:#0d6efd;--muted:#6c757d}
-    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background: linear-gradient(180deg,#fbfdff 0%, #f7fbff 100%); color:#222}
-    .hero{padding:3.5rem 1rem; text-align:center}
-    .card-anim{transform:translateY(12px);opacity:0;animation:rise .7s cubic-bezier(.2,.9,.3,1) forwards}
-    @keyframes rise{to{transform:none;opacity:1}}
-    .pulse{animation:pulse 2.2s infinite}
-    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(13,110,253,0.15)}70%{box-shadow:0 0 0 18px rgba(13,110,253,0)}100%{box-shadow:0 0 0 0 rgba(13,110,253,0)}}
-    .step-bullet{width:44px;height:44px;border-radius:50%;background:#fff;border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent)}
-    .doc-list li{margin-bottom:.35rem}
-    .glow{box-shadow:0 6px 30px rgba(13,110,253,.08)}
-    .footer{padding:1.25rem 0;text-align:center;color:var(--muted)}
-    /* responsive tweaks */
-    @media (min-width:992px){.hero{padding:4.5rem 2rem}}
+    :root {
+      --primary-color: #4e73df;
+      --light-gray: #f8f9fa;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff;
+      color: #333;
+    }
+    .navbar-brand span {
+      font-weight: 700;
+    }
+    .logo-img {
+      height: 40px;
+    }
+    /* Hero Section */
+    .hero {
+      background-color: var(--light-gray);
+      padding: 60px 0;
+    }
+    .hero h1 {
+      font-weight: 700;
+      color: #162d50;
+    }
+    .hero .lead {
+      color: #555;
+    }
+    .hero .btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      padding: 12px 30px;
+      font-weight: 600;
+      border-radius: 50px;
+    }
+    /* Section Styles */
+    section {
+      padding: 80px 0;
+    }
+    .section-title {
+      font-weight: 700;
+      margin-bottom: 40px;
+      position: relative;
+      text-align: center;
+    }
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background-color: var(--primary-color);
+    }
+    /* Process Timeline */
+    .process-timeline {
+      position: relative;
+      padding: 20px 0;
+    }
+    .process-step {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    .process-icon {
+      flex-shrink: 0;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--primary-color);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-right: 25px;
+      z-index: 2;
+    }
+    .process-content h5 {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    /* Documents Section */
+    #docs .card {
+      border: 1px solid #e9ecef;
+      border-radius: 0.5rem;
+      height: 100%;
+    }
+    #docs .card-header {
+      background-color: var(--light-gray);
+      font-weight: 600;
+    }
+    #docs ul {
+      padding-left: 20px;
+    }
+    #docs ul li::marker {
+      color: var(--primary-color);
+    }
+    /* FAQ Accordion */
+    .accordion-button:not(.collapsed) {
+      background-color: var(--light-gray);
+      color: var(--primary-color);
+      box-shadow: none;
+      font-weight: 600;
+    }
+    .footer {
+      background-color: #162d50;
+      color: #adb5bd;
+      padding: 40px 0;
+      text-align: center;
+    }
+    /* Animation */
+    .fade-in-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in-up.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    /* Chat Widget Styles */
+    #chat-toggle {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        z-index: 1000;
+        transition: transform 0.3s ease;
+    }
+    #chat-toggle:hover {
+        transform: scale(1.1);
+    }
+    #chat-container {
+        position: fixed;
+        bottom: 100px;
+        right: 30px;
+        width: 350px;
+        max-width: 90%;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+        z-index: 999;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    }
+    #chat-container.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    .chat-header {
+        background: var(--primary-color);
+        color: white;
+        padding: 15px;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .chat-header .btn-close {
+        filter: invert(1) grayscale(100%) brightness(200%);
+    }
+    #chat-box {
+        height: 300px;
+        padding: 15px;
+        overflow-y: auto;
+        flex-grow: 1;
+        font-size: 0.9rem;
+    }
+    #chat-box p {
+        margin-bottom: 15px;
+        line-height: 1.5;
+    }
+    #chat-box .bot-msg {
+        background-color: #f1f1f1;
+        padding: 10px 15px;
+        border-radius: 15px 15px 15px 0;
+        display: inline-block;
+        max-width: 85%;
+    }
+    #chat-box .user-msg {
+        text-align: right;
+    }
+    #chat-box .user-msg span {
+        background-color: #eaf1ff;
+        color: #333;
+        padding: 10px 15px;
+        border-radius: 15px 15px 0 15px;
+        display: inline-block;
+        max-width: 85%;
+        text-align: left;
+    }
+    .chat-input {
+        display: flex;
+        padding: 10px;
+        border-top: 1px solid #eee;
+    }
+    .chat-input input {
+        flex-grow: 1;
+        border: none;
+        padding: 10px;
+        border-radius: 20px;
+        background-color: #f1f1f1;
+    }
+    .chat-input input:focus {
+        outline: none;
+        box-shadow: none;
+    }
+    .chat-input button {
+        background: none;
+        border: none;
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        margin-left: 10px;
+    }
   </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="#">GST Helper</a>
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="logo KS.png" alt="KS TAXSOLUTION Logo" class="logo-img me-2">
+        <span>KS TAXSOLUTION</span>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navmenu">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#overview"><i class="fa fa-info-circle me-1"></i> Overview</a></li>
-          <li class="nav-item"><a class="nav-link" href="#types"><i class="fa fa-list-alt me-1"></i> Types</a></li>
-          <li class="nav-item"><a class="nav-link" href="#docs"><i class="fa fa-file-alt me-1"></i> Documents</a></li>
-           <li class="nav-item"><a class="nav-link" href="index.html"><i class="fa fa-home me-1"></i> Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
+          <li class="nav-item"><a class="nav-link" href="#docs">Documents</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">FAQs</a></li>
+          <li class="nav-item"><a class="nav-link fw-bold" href="index.html"><i class="bi bi-house-door-fill me-1"></i> Home</a></li>
         </ul>
       </div>
     </div>
@@ -43,152 +269,271 @@
 
   <header class="hero">
     <div class="container">
-      <h1 class="display-6 fw-bold">GST Registration — full guide for Regular, Composition, Partnership, Pvt Ltd & Public Ltd</h1>
-      <p class="lead text-muted">Step-by-step process, required documents, who must register, and a clean responsive HTML/CSS/Bootstrap template you can use right away.</p>
-      <div class="mt-4">
-        <a href="#types" class="btn btn-primary me-2"><i class="fa fa-file-invoice me-2"></i>See types & steps</a>
-    
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <h1 class="display-5 mb-3">Seamless GST Registration for Your Business</h1>
+          <p class="lead mb-4">Get your business GST-ready with our expert assistance. We streamline the entire registration process, ensuring quick, accurate, and hassle-free compliance.</p>
+        </div>
+        <div class="col-lg-6">
+          <img src="gst regisatrion.png" class="img-fluid rounded shadow-lg" alt="GST Registration Process">
+        </div>
+      </div>
     </div>
   </header>
 
-  <main class="container mb-5">
-    <section id="overview" class="mb-5">
-      <div class="row align-items-center">
-        <div class="col-lg-7">
-          <div class="card p-4 glow card-anim">
-            <h3 class="h5">Quick facts</h3>
-            <p class="text-muted mb-2">Who needs to register, and the commonly used thresholds and scheme limits (check local authority for updates).</p>
-            <ul class="list-unstyled">
-              <li><strong>Registration form:</strong> REG-01 (apply on GST portal)</li>
-              <li><strong>GST registration is free:</strong> There is no government fee for registration — professional fees may apply if you hire help.</li>
-              <li><strong>Thresholds overview:</strong> See the sections below for goods vs services and composition limits.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-5 mt-3 mt-lg-0">
-          <div class="card p-3 text-center">
-            <div class="mb-3">
-              <div class="step-bullet mx-auto mb-2"><i class="fa fa-check"></i></div>
-              <h6 class="mb-0">Apply on the GST portal (REG-01)</h6>
+  <main>
+    <section id="process">
+      <div class="container">
+        <h2 class="section-title">Our 4-Step GST Registration Process</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="process-timeline">
+              <div class="process-step fade-in-up">
+                <div class="process-icon">1</div>
+                <div class="process-content">
+                  <h5>Document Submission</h5>
+                  <p class="text-muted">Easily submit your required documents like PAN, Aadhaar, and business proofs through our secure portal.</p>
+                </div>
+              </div>
+              <div class="process-step fade-in-up">
+                <div class="process-icon">2</div>
+                <div class="process-content">
+                  <h5>Application Filing</h5>
+                  <p class="text-muted">Our experts will verify your documents and accurately file the GST registration application (REG-01) on your behalf.</p>
+                </div>
+              </div>
+              <div class="process-step fade-in-up">
+                <div class="process-icon">3</div>
+                <div class="process-content">
+                  <h5>Department Verification</h5>
+                  <p class="text-muted">We coordinate with the GST department for any queries and ensure a smooth verification process.</p>
+                </div>
+              </div>
+              <div class="process-step fade-in-up">
+                <div class="process-icon"><i class="bi bi-patch-check-fill"></i></div>
+                <div class="process-content">
+                  <h5>GSTIN Allotment</h5>
+                  <p class="text-muted">Once approved, you will receive your unique GST Identification Number (GSTIN) and registration certificate.</p>
+                </div>
+              </div>
             </div>
-            <p class="small text-muted">Verification is via PAN, Aadhaar, and documents. Typical processing for low-risk applicants is faster.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="types" class="mb-5">
-      <h2 class="h4 mb-3">Types & Step-by-step</h2>
-      <div class="row gy-3">
-
-        <div class="col-md-6">
-          <div class="card p-3 card-anim">
-            <div class="d-flex align-items-start">
-              <div class="me-3"><div class="step-bullet"><i class="fa fa-user-tag"></i></div></div>
-              <div>
-                <h5 class="mb-1">Regular Taxpayer (Normal)</h5>
-                <p class="small text-muted mb-2">Most businesses with turnover above the registration threshold. Need to file regular returns (GSTR-1, GSTR-3B etc.).</p>
-                <ol class="small mb-0">
-                  <li>Collect PAN, mobile, email — create GST portal account</li>
-                  <li>Fill REG-01 with business & promoter details</li>
-                  <li>Upload proof of business address, PAN, bank details, photos, and authorization</li>
-                  <li>Verification & ARN issuance — GSTIN is assigned on approval</li>
-                </ol>
+    <section id="docs" class="bg-light">
+      <div class="container">
+        <h2 class="section-title">Documents Required for GST Registration</h2>
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6 fade-in-up">
+            <div class="card">
+              <div class="card-header">Proprietorship / Individual</div>
+              <div class="card-body">
+                <ul>
+                  <li>PAN Card</li>
+                  <li>Aadhaar Card</li>
+                  <li>Passport-size Photograph</li>
+                  <li>Bank Account Proof (Cancelled Cheque)</li>
+                  <li>Address Proof (Electricity Bill/Rent Agreement)</li>
+                </ul>
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="card p-3 card-anim">
-            <div class="d-flex align-items-start">
-              <div class="me-3"><div class="step-bullet"><i class="fa fa-layer-group"></i></div></div>
-              <div>
-                <h5 class="mb-1">Composition Scheme (Simplified for small taxpayers)</h5>
-                <p class="small text-muted mb-2">Small taxpayers can opt for a composition scheme to pay tax at a fixed rate and enjoy simpler returns. Restrictions apply on interstate sales and certain businesses.</p>
-                <ul class="small mb-0">
-                  <li>Turnover limits (general): Traders & manufacturers up to ₹1.5 crore; Services up to ₹50 lakh (special states lower limits may apply).</li>
-                  <li>Register as composition dealer via REG-01 and opt into composition on the portal or during registration.</li>
+          <div class="col-lg-4 col-md-6 fade-in-up">
+            <div class="card">
+              <div class="card-header">Partnership / LLP</div>
+              <div class="card-body">
+                <ul>
+                  <li>PAN Card of the Firm/LLP</li>
+                  <li>Partnership Deed / LLP Agreement</li>
+                  <li>PAN & Aadhaar of all Partners</li>
+                  <li>Photograph of all Partners</li>
+                  <li>Bank Account Proof</li>
+                  <li>Proof of Principal Place of Business</li>
+                  <li>Authorization Letter for Signatory</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12 fade-in-up">
+            <div class="card">
+              <div class="card-header">Private / Public Ltd. Company</div>
+              <div class="card-body">
+                <ul>
+                  <li>Company PAN Card</li>
+                  <li>Certificate of Incorporation (MCA)</li>
+                  <li>Articles & Memorandum of Association (AOA/MOA)</li>
+                  <li>PAN & Aadhaar of all Directors</li>
+                  <li>Company Bank Account Proof</li>
+                  <li>Board Resolution for Authorized Signatory</li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
-
-        <div class="col-md-6">
-          <div class="card p-3 card-anim">
-            <div class="d-flex align-items-start">
-              <div class="me-3"><div class="step-bullet"><i class="fa fa-user-friends"></i></div></div>
-              <div>
-                <h5 class="mb-1">Partnership / LLP</h5>
-                <p class="small text-muted mb-2">Partnership firms must provide partnership deed, PAN of firm (if any), and PAN/Aadhaar of partners and an authorized signatory.</p>
-                <ol class="small mb-0">
-                  <li>Ensure PAN of partnership firm (or PAN of partners for proprietorship-like cases)</li>
-                  <li>Upload partnership deed, address proof, bank proof, and KYC of partners</li>
-                </ol>
+      </div>
+    </section>
+    
+    <section id="faq">
+      <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="accordion" id="faqAccordion">
+              <div class="accordion-item mb-2 fade-in-up">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                    Who must register for GST?
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    Any business whose aggregate turnover in a financial year exceeds the specified threshold limit (₹40 lakhs for goods and ₹20 lakhs for services in most states). Registration is also mandatory for certain businesses like e-commerce operators, interstate suppliers, and casual taxable persons, regardless of turnover.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item mb-2 fade-in-up">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                    Is there any government fee for GST registration?
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    No, there is no government fee for GST registration. The process is completely free on the official GST portal. Our professional fees are for expert consultation, accurate application filing, and follow-up services to ensure a smooth process.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item mb-2 fade-in-up">
+                <h2 class="accordion-header" id="headingThree">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                    What is the Composition Scheme?
+                  </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    The Composition Scheme is a simplified option for small taxpayers with a turnover of up to ₹1.5 crore (for goods) or ₹50 lakh (for services). It allows them to pay tax at a fixed, lower rate and file simpler quarterly returns, reducing compliance burden. However, they cannot issue tax invoices or claim input tax credit.
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="card p-3 card-anim">
-            <div class="d-flex align-items-start">
-              <div class="me-3"><div class="step-bullet"><i class="fa fa-building"></i></div></div>
-              <div>
-                <h5 class="mb-1">Private Limited & Public Limited Companies</h5>
-                <p class="small text-muted mb-2">Companies must register with company PAN, incorporate documents (MoA/AoA), directors' KYC, authorized signatory details and bank account proof.</p>
-                <ul class="small mb-0">
-                  <li>Provide incorporation certificate, PAN of company, list of directors with PAN/Aadhaar</li>
-                  <li>Board resolution or authorization for authorized signatory (if required)</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <section id="docs" class="mb-5">
-      <h2 class="h4 mb-3">Common Documents Checklist</h2>
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="card p-3 card-anim">
-            <h6>Identity & KYC</h6>
-            <ul class="doc-list small">
-              <li>PAN of applicant / entity</li>
-              <li>Aadhaar of authorized signatory(s)</li>
-              <li>Passport-size photo of proprietors / partners / directors</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-6 mt-3 mt-lg-0">
-          <div class="card p-3 card-anim">
-            <h6>Business & Address proofs</h6>
-            <ul class="doc-list small">
-              <li>Business registration / incorporation certificate (for companies)</li>
-              <li>Partnership deed (for partnership)</li>
-              <li>Electricity bill / municipal khata / property tax / rent agreement + NOC</li>
-              <li>Bank account statement or cancelled cheque</li>
-            </ul>
+            
           </div>
         </div>
       </div>
     </section>
+  </main>
+  
+  <!-- AI Chat Widget -->
+  <div id="chat-widget">
+    <div id="chat-toggle">
+        <i class="bi bi-chat-dots-fill"></i>
+    </div>
+    <div id="chat-container">
+        <div class="chat-header">
+            <span>AI GST & Tax Assistant</span>
+            <button type="button" class="btn-close" id="chat-close-btn" aria-label="Close"></button>
+        </div>
+        <div id="chat-box">
+            <!-- Messages will be appended here -->
+        </div>
+        <div class="chat-input">
+            <input type="text" id="user-input" class="form-control" placeholder="Ask a question...">
+            <button id="send-btn"><i class="bi bi-send-fill"></i></button>
+        </div>
+    </div>
+  </div>
 
-    <section id="notes" class="mb-5">
-      <div class="card p-3 card-anim">
-        <h6>Other notes & pointers</h6>
-        <ul class="small text-muted">
-          <li>Government GST registration itself has no official fee; professional charges may apply if you hire a consultant.</li>
-          <li>Composition dealers cannot make interstate supplies (with exceptions) and cannot collect tax from customers as normal taxable person does.</li>
-          <li>Thresholds and special state limits change occasionally — verify with your state tax department or the official GST portal.</li>
-        </ul>
-      </div>
-    </section>
+  <footer class="footer">
+    <p class="mb-0">&copy; 2025 KS TAXSOLUTION. All Rights Reserved.</p>
+  </footer>
 
-   
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Scroll reveal animation
+    const reveals = document.querySelectorAll(".fade-in-up");
+    function handleReveal() {
+      const triggerBottom = window.innerHeight * 0.9;
+      reveals.forEach(el => {
+        if (el.getBoundingClientRect().top < triggerBottom) {
+          el.classList.add("show");
+        }
+      });
+    }
+    window.addEventListener("scroll", handleReveal);
+    document.addEventListener("DOMContentLoaded", handleReveal);
+
+    // Chat Widget JS
+    const chatToggle = document.getElementById('chat-toggle');
+    const chatContainer = document.getElementById('chat-container');
+    const chatCloseBtn = document.getElementById('chat-close-btn');
+    const chatBox = document.getElementById('chat-box');
+    const userInput = document.getElementById('user-input');
+    const sendBtn = document.getElementById('send-btn');
+
+    // Toggle chat window
+    chatToggle.addEventListener('click', () => {
+        chatContainer.classList.toggle('active');
+    });
+
+    chatCloseBtn.addEventListener('click', () => {
+        chatContainer.classList.remove('active');
+    });
+
+    // Add initial bot message
+    function addBotMessage(message) {
+        const botMessage = `<p class="bot-msg">${message}</p>`;
+        chatBox.innerHTML += botMessage;
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    addBotMessage("Hi there! I'm the KS TAXSOLUTION AI Assistant. Ask me anything about GST registration, and I'll do my best to help.");
+
+    function handleSendMessage() {
+        const message = userInput.value.trim();
+        if (message === "") return;
+
+        // Add user message to chatbox
+        const userMessage = `<p class="user-msg"><span>${message}</span></p>`;
+        chatBox.innerHTML += userMessage;
+        userInput.value = "";
+        chatBox.scrollTop = chatBox.scrollHeight;
+
+        // Simulate bot response
+        setTimeout(() => {
+            let botResponse = "Thank you for your question. As an AI assistant, I can provide general information on GST. For specific financial advice tailored to your business, it's best to consult with one of our human experts at KS TAXSOLUTION.";
+            const lowerCaseMessage = message.toLowerCase();
+
+            if (lowerCaseMessage.includes("hello") || lowerCaseMessage.includes("hi")) {
+                botResponse = "Hello! How can I assist you with your GST registration questions today?";
+            } else if (lowerCaseMessage.includes("gst registration") || lowerCaseMessage.includes("how to register")) {
+                botResponse = "GST registration is mandatory for businesses with a turnover above the threshold limit. We can handle the entire process for you, from documentation to final GSTIN allotment. It's a simple 4-step process with us!";
+            } else if (lowerCaseMessage.includes("document")) {
+                botResponse = "The documents required depend on your business type. For a proprietorship, you'll need your PAN, Aadhaar, photo, and address proof. For partnerships or companies, additional documents like the partnership deed or certificate of incorporation are needed. You can find a detailed list on this page.";
+            } else if (lowerCaseMessage.includes("composition scheme")) {
+                botResponse = "The Composition Scheme is a simple, hassle-free compliance scheme for small taxpayers. It allows you to pay tax at a fixed, lower rate on your turnover and file quarterly returns. However, you cannot claim input tax credit (ITC).";
+            } else if (lowerCaseMessage.includes("benefit") || lowerCaseMessage.includes("why register")) {
+                botResponse = "Registering for GST makes your business legally recognized as a supplier, allows you to claim Input Tax Credit on your purchases, and lets you conduct interstate trade without restrictions. It builds trust with your customers.";
+            } else if (lowerCaseMessage.includes("time") || lowerCaseMessage.includes("how long")) {
+                botResponse = "Typically, GST registration takes 3 to 7 working days after submitting the application. We work to ensure all your documents are correct to avoid any delays from the department.";
+            } else if (lowerCaseMessage.includes("fee") || lowerCaseMessage.includes("cost") || lowerCaseMessage.includes("charge")) {
+                botResponse = "There is no government fee for GST registration itself. Our professional fee covers expert consultation, document verification, accurate application filing, and follow-up with the department to make the process seamless for you.";
+            } else if (lowerCaseMessage.includes("gstin")) {
+                botResponse = "GSTIN stands for Goods and Services Tax Identification Number. It is a unique 15-digit PAN-based number that is assigned to every registered taxpayer. It's essential for all GST-related activities.";
+            }
+            
+            addBotMessage(botResponse);
+        }, 1200);
+    }
+
+    sendBtn.addEventListener('click', handleSendMessage);
+    userInput.addEventListener('keyup', (event) => {
+        if (event.key === 'Enter') {
+            handleSendMessage();
+        }
+    });
+
   </script>
 </body>
 </html>
