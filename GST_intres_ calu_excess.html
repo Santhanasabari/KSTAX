@@ -7,6 +7,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- filepath: c:\Users\Lenovo\Downloads\Project-software-main(1)\Project-software-main\GST_intres_ calu_excess.html -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     :root {
       --primary-dark: #162d50;
@@ -55,6 +57,11 @@
     .animate-zoom:hover{transform:scale(1.02)}
     small.muted{color:#6b7280}
     .step-bubble{background:#fff;padding:.5rem .75rem;border-radius:.6rem;border:1px solid #e6eefb}
+    .chart-container {
+        position: relative;
+        height: 250px; /* Fixed height for the chart */
+        width: 100%;
+    }
   </style>
 </head>
 <body>
@@ -84,7 +91,7 @@
     <div class="row justify-content-center">
       <div class="col-lg-8">
         <!-- Calculator Card -->
-        <div class="calculator-card" id="calculator-form">
+        <div class="calculator-card" id="calculator-form-container">
           <h4 class="mb-4 text-center">Enter Calculation Details</h4>
           
           <div class="mb-3">
@@ -131,10 +138,20 @@
           </div>
           
           <!-- Detailed Breakdown -->
-          <div class="card">
+          <div class="card mb-4">
             <div class="card-header fw-bold">Calculation Breakdown</div>
             <div class="card-body">
               <div id="results-details"></div>
+            </div>
+          </div>
+
+          <!-- New Chart Section -->
+          <div class="card">
+            <div class="card-header fw-bold">Visual Analysis</div>
+            <div class="card-body">
+                <div class="chart-container">
+                    <canvas id="interestChart"></canvas>
+                </div>
             </div>
           </div>
         </div>
@@ -148,6 +165,7 @@
 
 <script>
   const $ = (id) => document.getElementById(id);
+  let myChart = null; // Declare global chart variable
 
   // UI Event Listeners
   $('interestRate').addEventListener('change', () => {
@@ -158,9 +176,24 @@
   $('resetBtn').addEventListener('click', resetCalculator);
 
   function resetCalculator() {
-    $('calculator-form').reset();
+    // Reset form fields
+    $('itcAmount').value = '';
+    $('startDate').value = '';
+    $('endDate').value = '';
+    $('interestRate').value = '18';
+    $('customRate').value = '';
     $('customRate').style.display = 'none';
+
+    // Clear results and hide section
     $('results-section').classList.remove('show');
+    $('results-details').innerHTML = '';
+    $('finalInterest').textContent = '';
+
+    // Destroy chart if it exists
+    if (myChart) {
+        myChart.destroy();
+        myChart = null;
+    }
   }
 
   function calculateInterest() {
@@ -177,12 +210,14 @@
       resultsDetails.innerHTML = '<div class="alert alert-warning">Please fill all fields to calculate.</div>';
       resultsSection.classList.add('show');
       $('finalInterest').textContent = '₹ 0.00';
+      if (myChart) { myChart.destroy(); myChart = null; } // Destroy chart on error
       return;
     }
     if (new Date(end) < new Date(start)) {
       resultsDetails.innerHTML = '<div class="alert alert-danger">End date must be on or after the start date.</div>';
       resultsSection.classList.add('show');
       $('finalInterest').textContent = 'Error';
+      if (myChart) { myChart.destroy(); myChart = null; } // Destroy chart on error
       return;
     }
     
@@ -211,6 +246,90 @@
     
     resultsSection.classList.add('show');
     resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // --- Chart.js Integration ---
+    if (myChart) {
+        myChart.destroy(); // Destroy previous chart instance if it exists
+    }
+
+    const ctx = $('interestChart').getContext('2d');
+    myChart = new Chart(ctx, {
+        type: 'bar', // A bar chart
+        data: {
+            labels: ['Excess ITC', 'Interest Payable', 'Total Reversal'],
+            datasets: [{
+                label: 'Amount (₹)',
+                data: [itc, interest, totalPayable],
+                backgroundColor: [
+                    'rgba(78, 115, 223, 0.8)', // Primary blue for ITC
+                    'rgba(28, 200, 138, 0.8)', // Success green for Interest
+                    'rgba(255, 193, 7, 0.8)'   // Warning yellow for Total
+                ],
+                borderColor: [
+                    'rgba(78, 115, 223, 1)',
+                    'rgba(28, 200, 138, 1)',
+                    'rgba(255, 193, 7, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false, // Allows chart to take height of container
+            indexAxis: 'y', // Makes it a horizontal bar chart
+            plugins: {
+                legend: {
+                    display: false // No need for legend if only one dataset
+                },
+                title: {
+                    display: true,
+                    text: 'Financial Breakdown',
+                    font: {
+                        size: 16
+                    },
+                    color: '#333'
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.dataset.label || '';
+                            if (label) {
+                                label += ': ';
+                            }
+                            if (context.parsed.x !== null) {
+                                label += '₹ ' + money(context.parsed.x);
+                            }
+                            return label;
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Amount (₹)',
+                        color: '#555'
+                    },
+                    ticks: {
+                        callback: function(value) {
+                            return '₹ ' + money(value);
+                        },
+                        color: '#777'
+                    }
+                },
+                y: {
+                    grid: {
+                        display: false // Hide y-axis grid lines
+                    },
+                    ticks: {
+                        color: '#555'
+                    }
+                }
+            }
+        }
+    });
   }
 
   function money(x) {
